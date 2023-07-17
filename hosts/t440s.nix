@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       #<nixos-hardware/lenovo/thinkpad/t440s>
-      ./hardware-configuration.nix
+      ./hardware-t440s.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
