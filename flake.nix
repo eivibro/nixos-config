@@ -42,7 +42,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.eivbro = {
                 imports = [
-                  ./home.nix
+                  ./home-manager/t440s.nix
                   hyprland.homeManagerModules.default
                 ];
  	     _module.args.self = self;
