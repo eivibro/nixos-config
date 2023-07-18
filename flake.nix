@@ -38,6 +38,7 @@
           modules = [
             hosts/t440s.nix
             home-manager.nixosModules.home-manager
+	    #nixos-hardware.nixosModules.lenovo-thinkpad-t440s
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
