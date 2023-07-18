@@ -20,9 +20,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
     nur.url = "github:nix-community/NUR";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, hyprland, nur, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, hyprland, nur, nixos-hardware, ... }:
     let
       system = "x86_64-linux";
       overlays = with inputs;
@@ -42,7 +43,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.eivbro = {
                 imports = [
-                  ./home-manager/t440s.nix
+                  ./home-manager/laptop.nix
                   hyprland.homeManagerModules.default
                 ];
  	     _module.args.self = self;
@@ -57,5 +58,34 @@
           ];
         };
       };
+      nixosConfigurations = {
+        x230 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            hosts/x230.nix
+	    #nixos-hardware.nixosModules.lenovo-thinkpad-x230
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.eivbro = {
+                imports = [
+                  ./home-manager/laptop.nix
+                  hyprland.homeManagerModules.default
+                ];
+             _module.args.self = self;
+             _module.args.inputs = inputs;
+             };
+              home-manager.extraSpecialArgs = { inherit self inputs; };
+              nixpkgs.overlays = overlays;
+            }
+            hyprland.nixosModules.default
+            {programs.hyprland.enable = true;}
+
+          ];
+        };
+      };
+
   };
 }
