@@ -61,7 +61,7 @@
   # hardware.pulseaudio.enable = true;
   # Not strictly required but pipewire will use rtkit if it is present
   security.rtkit.enable = true;
-  servOsloices.pipewire = {
+  services.pipewire = {
     enable = true;
     # Compatibility shims, adjust according to your needs
     alsa.enable = true;
