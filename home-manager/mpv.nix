@@ -10,6 +10,7 @@
       autofit-larger = "30%x30%";
       hwdec = "auto";
       ytdl-raw-options="format-sort=vcodec:h264";
+      ytdl-format="bv[height<=?1080]+ba";
     };
   };
 }
