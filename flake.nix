@@ -50,7 +50,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.eivbro = {
                 imports = [
-                  ./home-manager/laptop.nix
+                  ./home-manager/t440s.nix
                   hyprland.homeManagerModules.default
                 ];
  	     _module.args.self = self;
@@ -78,7 +78,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.eivbro = {
                 imports = [
-                  ./home-manager/laptop.nix
+                  ./home-manager/x230.nix
                   hyprland.homeManagerModules.default
                 ];
              _module.args.self = self;
