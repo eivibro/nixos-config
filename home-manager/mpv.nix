@@ -9,8 +9,7 @@
       geometry = "0%:0%";
       autofit-larger = "30%x30%";
       hwdec = "auto";
-      ytdl-format="bestvideo[height<=?1080][vcodec!=?vp9]+bestaudio/best";
-
+      ytdl-raw-options="format-sort=vcodec:h264";
     };
   };
 }
