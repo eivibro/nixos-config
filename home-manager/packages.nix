@@ -2,15 +2,18 @@
 {
   # Packages to install
   home.packages = with pkgs; [
+    croc
     htop
-    ytfzf
-    wlr-randr
-    powertop
-    yt-dlp
-    tmux
-    obsidian
-    moonlight-qt
     jellyfin-media-player
+    moonlight-qt
+    obsidian
+    powertop
+    tmux
     tor-browser-bundle-bin
+    unrar
+    unzip
+    wlr-randr
+    yt-dlp
+    ytfzf
   ];
 }

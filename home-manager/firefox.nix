@@ -25,7 +25,7 @@
 	  duckduckgo-privacy-essentials
 	  sponsorblock
 	  unpaywall
-	  demodal
+	  #demodal
 	  h264ify
 	  tridactyl
 	];

@@ -5,28 +5,25 @@
 
     enableNvidiaPatches = true;
     extraConfig = ''
-      monitor=,preferred,auto,auto
+      monitor=,2560x1440@144,0x0,1
       
-     
       # See https://wiki.hyprland.org/Configuring/Keywords/ for more
       
       # Execute your favorite apps at launch
       # exec-once = waybar & hyprpaper & firefox
       exec-once = waybar
-      #exec-once = sleep 20 && hyprctl setcursor Bibata-Modern-Classic 40
       
       # Source a file (multi-file configs)
       # source = ~/.config/hypr/myColors.conf
       
       # Some default env vars.
       env = XCURSOR_SIZE, 24 
-      #env = XCURSOR_THEME,Bibata-Modern-Classic
       env = XCURSOR_THEME,Catppuccin-Frappe-Teal-Cursors
       
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {
           kb_layout = no
-          kb_variant = dvorak
+          #kb_variant = dvorak
           kb_model =
           kb_options =
           kb_rules =
@@ -119,7 +116,7 @@
       windowrulev2 = size 30% 30%,title:(Picture-in-Picture)
       windowrulev2 = noinitialfocus,class:(mpv)
       windowrulev2 = float,class:(mpv)
-      windowrulev2 = move 75% 70%,class:(mpv)
+      windowrulev2 = move 75% 75%,class:(mpv)
       
       
       # See https://wiki.hyprland.org/Configuring/Keywords/ for more
