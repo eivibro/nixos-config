@@ -25,7 +25,7 @@
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {
           kb_layout = no
-          kb_variant = dvorak
+          #kb_variant = dvorak
           kb_model =
           kb_options =
           kb_rules =
