@@ -54,6 +54,12 @@
     driSupport32Bit = true;
   };
 
+  #virtualisation = {
+  #  podman = {
+  #    enable = true;
+  #  };
+  #};
+
   services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
