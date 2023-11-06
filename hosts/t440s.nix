@@ -14,6 +14,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "ntfs" ];
   boot.kernel.sysctl."kernel.sysrq" = 1;
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -33,6 +34,7 @@
   console = {
     font = "Lat2-Terminus16";
     keyMap = "dvorak-no";
+    #keyMap = "no";
     # useXkbConfig = true; # use xkbOptions in tty.
   };
 
@@ -80,6 +82,7 @@
       CPU_BOOST_ON_BAT = 0;
       CPU_SCALING_GOVERNOR_ON_AC = "performance";
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      USB_EXCLUDE_BTUSB=1;
     };
   };
 
@@ -106,6 +109,7 @@
     bemenu
     brightnessctl
     wget
+    wireguard-tools
   ];
 
   fonts.fonts = with pkgs; [
@@ -152,6 +156,31 @@
   #    }
   #  ];
   # Or disable the firewall altogether.
+  # enable NAT
+  #networking.nat.enable = true;
+  #networking.nat.externalInterface = "wlp3s0";
+  #networking.nat.internalInterface =  [ "wg0" ];
+  #networking.firewall = {
+  #  allowedUDPPorts = [ 51430 ];
+  #};
+
+  networking.wg-quick.interfaces = {
+    wg0 = {
+      address = [ "172.16.16.4/24" ];
+      dns = [ "172.16.16.1" ];
+      # listenPort = 51430;
+      privateKeyFile = "/home/eivbro/wireguard-keys/private";
+      peers = [
+        {
+          publicKey = "GUugUinK9Smo4sjmQ+hXQ0DEhgBAvhoAoa5pZHk+cW4=";
+          # allowedIPs = [ "192.168.41.0/24" "192.168.42.0/24" "192.168.43.0/24" "192.168.44.0/24" "192.168.45.0/24"];
+          allowedIPs = [ "0.0.0.0/0" ];
+          endpoint = "wireguard.brox.tech:51430";
+          persistentKeepalive = 25;
+        }
+      ];
+    };
+  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
