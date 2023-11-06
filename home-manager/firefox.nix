@@ -25,9 +25,19 @@
 	  duckduckgo-privacy-essentials
 	  sponsorblock
 	  unpaywall
-	  demodal
+	  #demodal
 	  h264ify
 	  tridactyl
+	];
+	bookmarks = [
+	  {
+	    name = "Home assistant intents";
+	    url = "https://github.com/home-assistant/intents/tree/main/tests/en";
+	  }
+	  {
+	    name = "Nix dev resources";
+	    url = "https://github.com/mikeroyal/NixOS-Guide#NixOS-developer-resources";
+	  }
 	];
       };
     };

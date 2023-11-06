@@ -1,8 +1,9 @@
-{inputs, ...}:
+{pkgs, inputs, ...}:
 {
   programs.waybar = {
     enable = true;
-    package = inputs.hyprland.packages.x86_64-linux.waybar-hyprland;
+    #package = inputs.hyprland.packages.x86_64-linux.waybar-hyprland;
+    package = pkgs.waybar;
     settings = [{
       layer = "top";
       positon = "top";
@@ -10,7 +11,7 @@
       exclusive = "true";
       passthrough = "false";
       gtk-layer-shell = true;
-      modules-left = [ "clock" "wlr/workspaces" ];
+      modules-left = [ "clock" "hyprland/workspaces" ];
       modules-center = [ "hyprland/window" ];
       modules-right = [ "battery" "backlight" "pulseaudio" ];
       "backlight" = {
@@ -52,7 +53,7 @@
         format-icons = ["" "" ""];
         min-length = 7;
       };	
-      "wlr/workspaces" = {
+      "hyprland/workspaces" = {
         on-click = "activate";
       };
     }];

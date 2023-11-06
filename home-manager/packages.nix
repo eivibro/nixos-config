@@ -2,20 +2,21 @@
 {
   # Packages to install
   home.packages = with pkgs; [
-    libreoffice-qt
+    croc
+    htop
     hunspell
     hunspellDicts.nb-no
-    htop
-    ytfzf
-    wlr-randr
-    powertop
-    yt-dlp
-    tmux
-    obsidian
-    moonlight-qt
     jellyfin-media-player
+    libreoffice-qt
+    moonlight-qt
+    obsidian
+    powertop
+    tmux
     tor-browser-bundle-bin
+    unrar
     unzip
-    croc
+    wlr-randr
+    yt-dlp
+    ytfzf
   ];
 }
