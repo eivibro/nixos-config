@@ -5,6 +5,7 @@
     package = pkgs.firefox.override {
       cfg = { enableTridactylNative = true; };
     };
+    #nativeMessagingHosts = pkgs.tridactyl-native;
     profiles = {
       default = {
         id = 0;
@@ -38,7 +39,19 @@
 	    name = "Nix dev resources";
 	    url = "https://github.com/mikeroyal/NixOS-Guide#NixOS-developer-resources";
 	  }
-	];
+	  {
+	    name = "Getting Inputs to Modules in Flakes";
+	    url = "https://blog.nobbz.dev/2022-12-12-getting-inputs-to-modules-in-a-flake/";
+	  }
+	  {
+	    name = "Lading plass 47";
+	    url = "https://lading.fjordkraft.no";
+	  }
+	  {
+	    name = "NixOS options";
+	    url = "https://mynixos.com/";
+	  }
+];
       };
     };
   };

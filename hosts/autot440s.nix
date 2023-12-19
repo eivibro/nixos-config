@@ -8,7 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
       #<nixos-hardware/lenovo/thinkpad/t440s>
-      ./hardware-t440s.nix
+      ./hardware-autot440s.nix
+      ../deploy/disko-nixos.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -129,7 +130,12 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
+
+  
+  users.users.root.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM7TjT6dtGLbI+27oGmqvnc4Ws+jbfM4CsMaryQMuYHO eivbro@nixos"
+  ];
 
   # Open ports in the firewall.
   networking.firewall.enable = false;
@@ -163,24 +169,6 @@
   #networking.firewall = {
   #  allowedUDPPorts = [ 51430 ];
   #};
-
-  networking.wg-quick.interfaces = {
-    wg0 = {
-      address = [ "172.16.16.4/24" ];
-      dns = [ "172.16.16.1" ];
-      # listenPort = 51430;
-      privateKeyFile = "/home/eivbro/wireguard-keys/private";
-      peers = [
-        {
-          publicKey = "GUugUinK9Smo4sjmQ+hXQ0DEhgBAvhoAoa5pZHk+cW4=";
-          # allowedIPs = [ "192.168.41.0/24" "192.168.42.0/24" "192.168.43.0/24" "192.168.44.0/24" "192.168.45.0/24"];
-          allowedIPs = [ "0.0.0.0/0" ];
-          endpoint = "wireguard.brox.tech:51430";
-          persistentKeepalive = 25;
-        }
-      ];
-    };
-  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
