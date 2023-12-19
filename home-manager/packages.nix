@@ -2,6 +2,7 @@
 {
   # Packages to install
   home.packages = with pkgs; [
+    #appimage-run
     croc
     htop
     hunspell
@@ -9,12 +10,13 @@
     jellyfin-media-player
     libreoffice-qt
     moonlight-qt
-    obsidian
+    #obsidian
     powertop
     tmux
     tor-browser-bundle-bin
     unrar
     unzip
+    ventoy-full
     wlr-randr
     yt-dlp
     ytfzf

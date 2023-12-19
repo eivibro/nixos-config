@@ -3,7 +3,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
 
-    enableNvidiaPatches = true;
     extraConfig = ''
       monitor=,preferred,auto,auto
       
@@ -67,6 +66,9 @@
           shadow_range = 4
           shadow_render_power = 3
           col.shadow = rgba(1a1a1aee)
+      }
+      misc {
+          force_default_wallpaper = 0
       }
       
       animations {

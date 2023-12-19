@@ -27,9 +27,11 @@
     hyprland.url = "github:hyprwm/Hyprland";
     nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";  
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, hyprland, nur, nixos-hardware, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, hyprland, nur, nixos-hardware, disko, ... }:
     let
       system = "x86_64-linux";
       overlays = with inputs;
@@ -122,6 +124,34 @@
           ];
         };
       };
+      nixosConfigurations = {
+        autot440s= nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+	    disko.nixosModules.disko
+            hosts/autot440s.nix
+            home-manager.nixosModules.home-manager
+	    #nixos-hardware.nixosModules.lenovo-thinkpad-t440s
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.eivbro = {
+                imports = [
+                  ./home-manager/t440s.nix
+                  hyprland.homeManagerModules.default
+                ];
+ 	     _module.args.self = self;
+             _module.args.inputs = inputs;
+             };
+              home-manager.extraSpecialArgs = { inherit self inputs; };
+	      nixpkgs.overlays = overlays;
+            }
+            hyprland.nixosModules.default
+            {programs.hyprland.enable = true;}
 
+         ];
+       };
+     };
   };
 }
