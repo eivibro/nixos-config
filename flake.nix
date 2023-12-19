@@ -63,7 +63,35 @@
             {programs.hyprland.enable = true;}
 
           ];
-       };
+        };
+      };
+      nixosConfigurations = {
+        t440s2 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            hosts/t440s2.nix
+            home-manager.nixosModules.home-manager
+	    #nixos-hardware.nixosModules.lenovo-thinkpad-t440s
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.eivbro = {
+                imports = [
+                  ./home-manager/t440s.nix
+                  hyprland.homeManagerModules.default
+                ];
+ 	     _module.args.self = self;
+             _module.args.inputs = inputs;
+             };
+              home-manager.extraSpecialArgs = { inherit self inputs; };
+	      nixpkgs.overlays = overlays;
+            }
+            hyprland.nixosModules.default
+            {programs.hyprland.enable = true;}
+
+          ];
+        };
       };
       nixosConfigurations = {
         x230 = nixpkgs.lib.nixosSystem {
