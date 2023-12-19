@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       #<nixos-hardware/lenovo/thinkpad/t440s>
-      ./hardware-t440s3.nix
+      ./hardware-t440s2.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -166,7 +166,7 @@
 
   networking.wg-quick.interfaces = {
     wg0 = {
-      address = [ "172.16.16.4/24" ];
+      address = [ "172.16.16.5/24" ];
       dns = [ "172.16.16.1" ];
       # listenPort = 51430;
       privateKeyFile = "/home/eivbro/wireguard-keys/private";

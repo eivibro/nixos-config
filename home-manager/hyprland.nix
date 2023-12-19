@@ -68,6 +68,10 @@
           shadow_render_power = 3
           col.shadow = rgba(1a1a1aee)
       }
+
+      misc {
+          force_default_wallpaper = 0
+      }
       
       animations {
           enabled = yes
