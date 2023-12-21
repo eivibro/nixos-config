@@ -47,6 +47,7 @@
           specialArgs = { inherit inputs; };
           modules = [
             hosts/t440s.nix
+	    sops-nix.nixosModules.sops
             home-manager.nixosModules.home-manager
 	    #nixos-hardware.nixosModules.lenovo-thinkpad-t440s
             {
@@ -65,7 +66,6 @@
             }
             hyprland.nixosModules.default
             {programs.hyprland.enable = true;}
-	    sops-nix.nixosModules.sops
           ];
         };
       };
