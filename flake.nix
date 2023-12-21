@@ -29,9 +29,11 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";  
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, hyprland, nur, nixos-hardware, disko, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, hyprland, nur, nixos-hardware, disko, sops-nix, ... }:
     let
       system = "x86_64-linux";
       overlays = with inputs;
@@ -63,7 +65,7 @@
             }
             hyprland.nixosModules.default
             {programs.hyprland.enable = true;}
-
+	    sops-nix.nixosModules.sops
           ];
         };
       };
