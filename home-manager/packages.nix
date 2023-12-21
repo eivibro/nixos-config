@@ -2,7 +2,7 @@
 {
   # Packages to install
   home.packages = with pkgs; [
-    #appimage-run
+    appimage-run
     croc
     htop
     hunspell
