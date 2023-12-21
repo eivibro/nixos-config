@@ -17,7 +17,7 @@
     unrar
     unzip
     ventoy-full
-    wl-clip
+    wl-clipboard
     wlr-randr
     yt-dlp
     ytfzf
