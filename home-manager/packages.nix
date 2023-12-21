@@ -17,6 +17,8 @@
     unrar
     unzip
     ventoy-full
+    wayclip
+    waypaste
     wlr-randr
     yt-dlp
     ytfzf
