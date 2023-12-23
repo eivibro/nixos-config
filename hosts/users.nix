@@ -14,5 +14,8 @@
 
   users.users.root = {
     hashedPasswordFile = config.sops.secrets."users/root".path;
+    openssh.authorizedKeys.keys = [
+      config.sops.secrets."ssh/eivbro".path
+    ];
   };
 }

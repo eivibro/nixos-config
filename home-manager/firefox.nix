@@ -3,9 +3,12 @@
   programs.firefox = {
     enable = true;
     package = pkgs.firefox.override {
-      cfg = { enableTridactylNative = true; };
+      #cfg = { enableTridactylNative = true; };
+      nativeMessagingHosts = [
+        pkgs.gnome-browser-connector
+	pkgs.tridactyl-native
+      ];
     };
-    #nativeMessagingHosts = pkgs.tridactyl-native;
     profiles = {
       default = {
         id = 0;
@@ -18,7 +21,6 @@
 	extensions = with pkgs.nur.repos.rycee.firefox-addons; 
 	[ 
 	  ublock-origin 
-	  #bypass-paywalls-clean
 	  bitwarden
 	  privacy-badger
 	  clearurls
@@ -26,7 +28,6 @@
 	  duckduckgo-privacy-essentials
 	  sponsorblock
 	  unpaywall
-	  #demodal
 	  h264ify
 	  tridactyl
 	];
@@ -51,7 +52,11 @@
 	    name = "NixOS options";
 	    url = "https://mynixos.com/";
 	  }
-];
+	  {
+	    name = "Network manager to Nix";
+	    url = "https://github.com/Janik-Haag/nm2nix";
+	  }
+        ];
       };
     };
   };

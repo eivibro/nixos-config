@@ -7,6 +7,7 @@
       ./hardware-t440s.nix
       ./sops.nix
       ./wifi.nix
+      ./users.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -16,71 +17,6 @@
   boot.kernel.sysctl."kernel.sysrq" = 1;
 
   networking.hostName = "nixos"; # Define your hostname.
-  #networking.networkmanager = {
-  #  enable = true;
-  #  ensureProfiles = {
-  #    environmentFiles = [ 
-  #      /run/secrets/wifi/pixelb
-  #      /run/secrets/wifi/eivind
-  #      ];
-  #    profiles = {
-  #      PixelB = {
-  #        connection = {
-  #          id = "PixelB";
-  #          uuid = "d34a0501-09ef-42f0-9839-41837b9d7eac";
-  #          type = "wifi";
-  #          interface-name = "wlp3s0";
-  #          timestamp = "1701719616";
-  #        };
-  #        wifi = {
-  #          mode = "infrastructure";
-  #          ssid = "PixelB";
-  #        };
-  #        wifi-security = {
-  #          auth-alg = "open";
-  #          key-mgmt = "wpa-psk";
-  #          psk = "$PSK_PHONE";
-  #        };
-  #        ipv4 = {
-  #          method = "auto";
-  #        };
-  #        ipv6 = {
-  #          addr-gen-mode = "default";
-  #          method = "auto";
-  #        };
-  #        proxy = {
-  #        };
-  #      };  
-  #      Eivind = {
-  #        connection = {
-  #          id = "Eivind";
-  #          uuid = "86ca8dce-af15-4ac8-b5f6-63b7c9b52ba4";
-  #          type = "wifi";
-  #          interface-name = "wlp3s0";
-  #          timestamp = "1701719593";
-  #        };
-  #        wifi = {
-  #          mode = "infrastructure";
-  #          ssid = "Eivind";
-  #        };
-  #        wifi-security = {
-  #          auth-alg = "open";
-  #          key-mgmt = "wpa-psk";
-  #          psk = "$PSK_EIVIND";
-  #        };
-  #        ipv4 = {
-  #          method = "auto";
-  #        };
-  #        ipv6 = {
-  #          addr-gen-mode = "default";
-  #          method = "auto";
-  #        };
-  #        proxy = {
-  #        };
-  #      };
-  #    };
-  #  };
-  #};
 
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
@@ -134,15 +70,6 @@
 
 
   hardware.bluetooth.enable = true;
-  users.users.eivbro = {
-    isNormalUser = true;
-    home = "/home/eivbro";
-    extraGroups = [ "wheel" "audio" "video" "networkmanager"];
-    packages = with pkgs; [
-      kitty
-      pavucontrol
-    ];
-  };
 
   environment.systemPackages = with pkgs; [
     bemenu
@@ -175,8 +102,9 @@
     };
   };
 
+  xdg.portal.config.common.default = "*";
   system.copySystemConfiguration = false;
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.05"; 
 
 }
 
