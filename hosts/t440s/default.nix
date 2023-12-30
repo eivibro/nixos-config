@@ -1,13 +1,12 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
-      #<nixos-hardware/lenovo/thinkpad/t440s>
-      ./hardware-t440s.nix
-      ./sops.nix
-      ./wifi.nix
-      ./users.nix
+      ./hardware.nix
+      ../../modules/sops.nix
+      ../../modules/wifi.nix
+      ../../modules/users.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -68,12 +67,10 @@
     };
   };
 
-
   hardware.bluetooth.enable = true;
 
   environment.systemPackages = with pkgs; [
     bemenu
-    brightnessctl
     wget
     wireguard-tools
   ];
@@ -83,7 +80,7 @@
     nerdfonts
   ];
 
-  # services.openssh.enable = true;
+  #services.openssh.enable = true;
   networking.firewall.enable = false;
 
   networking.wg-quick.interfaces = {

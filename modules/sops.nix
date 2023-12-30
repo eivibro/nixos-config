@@ -4,8 +4,8 @@
   sops = {
     defaultSopsFile = ../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
-    age.sshKeyPaths = [ "/home/eivbro/.ssh/ssh-secret" ];
-    age.keyFile = "/home/eivbro/.config/sops/age/keys.txt";
+    age.sshKeyPaths = [ "/etc/ssh/test" ];
+    age.keyFile = "/root/.conig/keys.txt";
     age.generateKey = true;
     secrets."wireguard/cortana/private" = {};
     secrets."wifi/laptop" = {};

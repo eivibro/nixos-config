@@ -3,6 +3,7 @@
   # Packages to install
   home.packages = with pkgs; [
     appimage-run
+    brightnessctl
     croc
     htop
     hunspell

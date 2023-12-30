@@ -21,7 +21,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    #nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
@@ -34,154 +33,68 @@
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, hyprland, nur, nixos-hardware, disko, sops-nix, ... }:
-    let
-      system = "x86_64-linux";
-      overlays = with inputs;
-      [
-        nur.overlay
-      ];
-    in {
-      nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            hosts/t440s.nix
-	    sops-nix.nixosModules.sops
-            home-manager.nixosModules.home-manager
-	    #nixos-hardware.nixosModules.lenovo-thinkpad-t440s
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.eivbro = {
-                imports = [
-                  ./home-manager/t440s.nix
-                  hyprland.homeManagerModules.default
-                ];
- 	     _module.args.self = self;
-             _module.args.inputs = inputs;
-             };
-              home-manager.extraSpecialArgs = { inherit self inputs; };
-	      nixpkgs.overlays = overlays;
-            }
-            hyprland.nixosModules.default
-            {programs.hyprland.enable = true;}
-          ];
-        };
+  {
+    nixosConfigurations = {
+      nixos = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          hosts/t440s/default.nix
+	  hosts/t440s/hm-module.nix
+        ];
       };
-      nixosConfigurations = {
-        t440s2 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            hosts/t440s2.nix
-            home-manager.nixosModules.home-manager
-	    #nixos-hardware.nixosModules.lenovo-thinkpad-t440s
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.eivbro = {
-                imports = [
-                  ./home-manager/t440s.nix
-                  hyprland.homeManagerModules.default
-                ];
- 	     _module.args.self = self;
-             _module.args.inputs = inputs;
-             };
-              home-manager.extraSpecialArgs = { inherit self inputs; };
-	      nixpkgs.overlays = overlays;
-            }
-            hyprland.nixosModules.default
-            {programs.hyprland.enable = true;}
-
-          ];
-        };
+    };
+    nixosConfigurations = {
+      auto = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          disko.nixosModules.disko
+          hosts/auto/default.nix
+	  hosts/auto/hm-module.nix
+        ];
       };
-      nixosConfigurations = {
-        x230 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            hosts/x230.nix
-	    #nixos-hardware.nixosModules.lenovo-thinkpad-x230
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.eivbro = {
-                imports = [
-                  ./home-manager/x230.nix
-                  hyprland.homeManagerModules.default
-                ];
-             _module.args.self = self;
-             _module.args.inputs = inputs;
-             };
-              home-manager.extraSpecialArgs = { inherit self inputs; };
-              nixpkgs.overlays = overlays;
-            }
-            hyprland.nixosModules.default
-            {programs.hyprland.enable = true;}
-
-          ];
-        };
-      };
-      nixosConfigurations = {
-        masterchief = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            hosts/masterchief.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.eivbro = {
-                imports = [
-                  ./home-manager/masterchief.nix
-                  hyprland.homeManagerModules.default
-                ];
-             _module.args.self = self;
-             _module.args.inputs = inputs;
-             };
-              home-manager.extraSpecialArgs = { inherit self inputs; };
-              nixpkgs.overlays = overlays;
-            }
-            hyprland.nixosModules.default
-            {programs.hyprland.enable = true;
-              programs.hyprland.enableNvidiaPatches = true;
-	    }
-
-          ];
-        };
-      };
-      nixosConfigurations = {
-        autot440s= nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-	    disko.nixosModules.disko
-            hosts/autot440s.nix
-            home-manager.nixosModules.home-manager
-	    #nixos-hardware.nixosModules.lenovo-thinkpad-t440s
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.eivbro = {
-                imports = [
-                  ./home-manager/t440s.nix
-                  hyprland.homeManagerModules.default
-                ];
- 	     _module.args.self = self;
-             _module.args.inputs = inputs;
-             };
-              home-manager.extraSpecialArgs = { inherit self inputs; };
-	      nixpkgs.overlays = overlays;
-            }
-            hyprland.nixosModules.default
-            {programs.hyprland.enable = true;}
-
-         ];
-       };
-     };
+    };
+    #nixosConfigurations = {
+    #  t440s2 = nixpkgs.lib.nixosSystem {
+    #    system = "x86_64-linux";
+    #    specialArgs = { inherit inputs; };
+    #    modules = [
+    #      hosts/t440s2.nix
+    #      home-manager/module.nix
+    #    ];
+    #  };
+    #};
+    #nixosConfigurations = {
+    #  x230 = nixpkgs.lib.nixosSystem {
+    #    system = "x86_64-linux";
+    #    specialArgs = { inherit inputs; };
+    #    modules = [
+    #      hosts/x230.nix
+    #      home-manager/module.nix
+    #    ];
+    #  };
+    #};
+    #nixosConfigurations = {
+    #  masterchief = nixpkgs.lib.nixosSystem {
+    #    system = "x86_64-linux";
+    #    specialArgs = { inherit inputs; };
+    #    modules = [
+    #      hosts/masterchief.nix
+    #      home-manager/module.nix
+    #    ];
+    #  };
+    #};
+    #nixosConfigurations = {
+    #  autot440s= nixpkgs.lib.nixosSystem {
+    #    system = "x86_64-linux";
+    #    specialArgs = { inherit inputs; };
+    #    modules = [
+    #      disko.nixosModules.disko
+    #      hosts/autot440s.nix
+    #      home-manager/module.nix
+    #    ];
+    #  };
+    #};
   };
 }
