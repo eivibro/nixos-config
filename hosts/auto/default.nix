@@ -81,7 +81,7 @@
     nerdfonts
   ];
 
-  #services.openssh.enable = true;
+  services.openssh.enable = true;
   networking.firewall.enable = false;
 
   #networking.wg-quick.interfaces = {
@@ -100,7 +100,7 @@
   #  };
   #};
 
-  xdg.portal.config.common.default = "*";
+  #xdg.portal.config.common.default = "*";
   system.copySystemConfiguration = false;
   system.stateVersion = "23.05"; 
 

@@ -6,6 +6,7 @@ let
     nur.overlay
   ];
 in {
+  programs.hyprland.enable = true;
   imports = 
   [
     inputs.sops-nix.nixosModules.sops
@@ -18,14 +19,10 @@ in {
           ./home.nix
           inputs.hyprland.homeManagerModules.default
         ];
-     _module.args.self = self;
-     _module.args.inputs = inputs;
      };
       home-manager.extraSpecialArgs = { inherit self inputs; };
       nixpkgs.overlays = overlays;
     }
-    inputs.hyprland.nixosModules.default
-    {programs.hyprland.enable = true;}
   ];
 }
 
