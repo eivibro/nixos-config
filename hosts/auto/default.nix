@@ -15,6 +15,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernel.sysctl."kernel.sysrq" = 1;
+  boot.initrd.availableKernelModules = [ "e1000e" ];
 
   networking.hostName = "auto"; # Define your hostname.
 
