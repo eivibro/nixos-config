@@ -23,4 +23,4 @@ chmod 600 "$temp/root/.ssh/initrd_host_ed25519_key"
 chmod 644 "$temp/root/.ssh/initrd_host_ed25519_key.pub"
 
 # Install NixOS to the host system with our secrets
-nix run github:nix-community/nixos-anywhere -- --disk-encryption-keys /tmp/secret.key /tmp/secret.key --extra-files "$temp" --flake '../.#auto' root@192.168.44.3 
+nix run github:nix-community/nixos-anywhere -- --disk-encryption-keys /tmp/secret.key /tmp/secret.key --extra-files "$temp" --flake '../.#auto' root@192.168.60.10 

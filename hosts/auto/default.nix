@@ -14,22 +14,22 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernel.sysctl."kernel.sysrq" = 1;
-  boot.tmp.cleanOnBoot = true;
-  boot.initrd = {
-    availableKernelModules = [ "e1000e" ];
-    preLVMCommands = lib.mkOrder 400 "sleep 1";
-    network = {
-      enable = true;
-      ssh = {
-        enable = true;
-        port = 2222;
-        hostKeys = [ "/etc/ssh/initrd_ssh_host_ed25519_key" ];
-        authorizedKeys = config.users.users.root.openssh.authorizedKeys.keys;
-      };
-    };
-  };
-  networking.useDHCP = false;
-  networking.interfaces.enp0s25.useDHCP = true;
+  #boot.tmp.cleanOnBoot = true;
+  #boot.initrd = {
+  #  availableKernelModules = [ "e1000e" ];
+  #  preLVMCommands = lib.mkOrder 400 "sleep 1";
+  #  network = {
+  #    enable = true;
+  #    ssh = {
+  #      enable = true;
+  #      port = 2222;
+  #      hostKeys = [ "/root/.ssh/initrd_ssh_host_ed25519_key" ];
+  #      authorizedKeys = config.users.users.root.openssh.authorizedKeys.keys;
+  #    };
+  #  };
+  #};
+  #networking.useDHCP = false;
+  #networking.interfaces.enp0s25.useDHCP = true;
     #network.postCommands = let
     #  disk = "/dev/disk/by-partlabel/dev-sda-luks";
     #in ''
