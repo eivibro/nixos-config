@@ -13,6 +13,5 @@
     secrets."wifi/laptop" = {};
     secrets."users/eivbro".neededForUsers = true;
     secrets."users/root".neededForUsers = true;
-    secrets."ssh/eivbro".neededForUsers = true;
   };
 }

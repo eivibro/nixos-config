@@ -43,8 +43,6 @@
 	  hosts/t440s/hm-module.nix
         ];
       };
-    };
-    nixosConfigurations = {
       auto = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
@@ -55,16 +53,6 @@
         ];
       };
     };
-    #nixosConfigurations = {
-    #  t440s2 = nixpkgs.lib.nixosSystem {
-    #    system = "x86_64-linux";
-    #    specialArgs = { inherit inputs; };
-    #    modules = [
-    #      hosts/t440s2.nix
-    #      home-manager/module.nix
-    #    ];
-    #  };
-    #};
     #nixosConfigurations = {
     #  x230 = nixpkgs.lib.nixosSystem {
     #    system = "x86_64-linux";
@@ -81,17 +69,6 @@
     #    specialArgs = { inherit inputs; };
     #    modules = [
     #      hosts/masterchief.nix
-    #      home-manager/module.nix
-    #    ];
-    #  };
-    #};
-    #nixosConfigurations = {
-    #  autot440s= nixpkgs.lib.nixosSystem {
-    #    system = "x86_64-linux";
-    #    specialArgs = { inherit inputs; };
-    #    modules = [
-    #      disko.nixosModules.disko
-    #      hosts/autot440s.nix
     #      home-manager/module.nix
     #    ];
     #  };

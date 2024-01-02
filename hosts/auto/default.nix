@@ -1,8 +1,8 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware.nix
       ./disk-config.nix
       ../../modules/sops.nix
@@ -10,13 +10,37 @@
       ../../modules/users.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernel.sysctl."kernel.sysrq" = 1;
-  boot.initrd.availableKernelModules = [ "e1000e" ];
-
+  boot.tmp.cleanOnBoot = true;
+  boot.initrd = {
+    availableKernelModules = [ "e1000e" ];
+    preLVMCommands = lib.mkOrder 400 "sleep 1";
+    network = {
+      enable = true;
+      ssh = {
+        enable = true;
+        port = 2222;
+        hostKeys = [ "/etc/ssh/initrd_ssh_host_ed25519_key" ];
+        authorizedKeys = config.users.users.root.openssh.authorizedKeys.keys;
+      };
+    };
+  };
+  networking.useDHCP = false;
+  networking.interfaces.enp0s25.useDHCP = true;
+    #network.postCommands = let
+    #  disk = "/dev/disk/by-partlabel/dev-sda-luks";
+    #in ''
+    #  echo 'cryptsetup open ${disk} root --type luks && echo > /tmp/continue' >> /root/.profile
+    #  echo 'starting sshd...'
+    #'';
+    #postDeviceCommands = ''
+    #  echo 'waiting for root device to be opened...'
+    #  mkfifo /tmp/continue
+    #  cat /tmp/continue
+    #'';
   networking.hostName = "auto"; # Define your hostname.
 
   # Set your time zone.
@@ -34,7 +58,6 @@
 
   nixpkgs.config.allowUnfree = true;
   
-  # NeoVim
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -56,6 +79,7 @@
   };
 
   # Power tuning 
+  services.system76-scheduler.settings.cfsProfiles.enable = true;
   services.thermald.enable = true;
   services.power-profiles-daemon.enable = false;
   services.tlp = {

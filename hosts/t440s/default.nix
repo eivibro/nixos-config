@@ -54,6 +54,7 @@
   };
 
   # Power tuning 
+  services.system76-scheduler.settings.cfsProfiles.enable = true;
   services.thermald.enable = true;
   services.power-profiles-daemon.enable = false;
   services.tlp = {
