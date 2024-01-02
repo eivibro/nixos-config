@@ -53,22 +53,22 @@
         ];
       };
     };
+    nixosConfigurations = {
+      masterchief = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          hosts/masterchief/default.nix
+          hosts/masterchief/hm-module.nix
+        ];
+      };
+    };
     #nixosConfigurations = {
     #  x230 = nixpkgs.lib.nixosSystem {
     #    system = "x86_64-linux";
     #    specialArgs = { inherit inputs; };
     #    modules = [
     #      hosts/x230.nix
-    #      home-manager/module.nix
-    #    ];
-    #  };
-    #};
-    #nixosConfigurations = {
-    #  masterchief = nixpkgs.lib.nixosSystem {
-    #    system = "x86_64-linux";
-    #    specialArgs = { inherit inputs; };
-    #    modules = [
-    #      hosts/masterchief.nix
     #      home-manager/module.nix
     #    ];
     #  };

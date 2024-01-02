@@ -22,8 +22,8 @@
       
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {
-          kb_layout = no
-          #kb_variant = dvorak
+          kb_layout = no,no
+          kb_variant = ,dvorak
           kb_model =
           kb_options =
           kb_rules =
@@ -197,6 +197,8 @@
       # Pinning window
       bind = $mainMod, S, pin
 
+      # Switch keyboard variant
+      bind = $mainMod, T, exec, hyprctl switchxkblayout at-translated-set-2-keyboard next
     '';
   };
 }
