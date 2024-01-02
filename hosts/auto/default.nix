@@ -13,34 +13,21 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
+  boot.kernelParams = [ "ip=dhcp" ];
   boot.kernel.sysctl."kernel.sysrq" = 1;
-  #boot.tmp.cleanOnBoot = true;
-  #boot.initrd = {
-  #  availableKernelModules = [ "e1000e" ];
-  #  preLVMCommands = lib.mkOrder 400 "sleep 1";
-  #  network = {
-  #    enable = true;
-  #    ssh = {
-  #      enable = true;
-  #      port = 2222;
-  #      hostKeys = [ "/root/.ssh/initrd_ssh_host_ed25519_key" ];
-  #      authorizedKeys = config.users.users.root.openssh.authorizedKeys.keys;
-  #    };
-  #  };
-  #};
-  #networking.useDHCP = false;
-  #networking.interfaces.enp0s25.useDHCP = true;
-    #network.postCommands = let
-    #  disk = "/dev/disk/by-partlabel/dev-sda-luks";
-    #in ''
-    #  echo 'cryptsetup open ${disk} root --type luks && echo > /tmp/continue' >> /root/.profile
-    #  echo 'starting sshd...'
-    #'';
-    #postDeviceCommands = ''
-    #  echo 'waiting for root device to be opened...'
-    #  mkfifo /tmp/continue
-    #  cat /tmp/continue
-    #'';
+  boot.initrd = {
+    availableKernelModules = [ "e1000e" ];
+    network = {
+      enable = true;
+      ssh = {
+        enable = true;
+        port = 2222;
+	shell = "/bin/cryptsetup-askpass";
+        hostKeys = [ "/etc/secrets/initrd/ssh_host_ed25519_key" ];
+        authorizedKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF2L5pouZVhwl3YAYSc7OEQQseM5fVFYD2/zzVqHzzzA root@auto" ]; 
+      };
+    };
+  };
   networking.hostName = "auto"; # Define your hostname.
 
   # Set your time zone.
