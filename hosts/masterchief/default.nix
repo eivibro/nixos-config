@@ -12,7 +12,6 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernel.sysctl."kernel.sysrq" = 1;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelParams = [ "ip=dhcp" ];
   boot.kernel.sysctl."kernel.sysrq" = 1;
@@ -72,6 +71,7 @@
     };
     steam = {
       enable = true;
+    };
   };
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

@@ -3,7 +3,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
 
-    enableNvidiaPatches = true;
+    #enableNvidiaPatches = true;
     extraConfig = ''
       monitor=,2560x1440@144,0x0,1
       

@@ -58,6 +58,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
+          disko.nixosModules.disko
           hosts/masterchief/default.nix
           hosts/masterchief/hm-module.nix
         ];
