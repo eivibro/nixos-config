@@ -5,6 +5,7 @@
     appimage-run
     brightnessctl
     croc
+    discord
     htop
     hunspell
     hunspellDicts.nb-no

@@ -4,5 +4,6 @@
   home.packages = with pkgs; [
     yuzu-mainline
     sunshine
+    element-desktop
   ];
 }
