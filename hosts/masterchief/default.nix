@@ -55,7 +55,13 @@
   };
 
   services.xserver.videoDrivers = ["nvidia"];
+
   services.fstrim.enable = true;
+  services.btrfs.autoScrub = {
+    enable = true;
+    interval = "monthly";
+    fileSystems = [ "/" "/home" ];
+  };
 
   hardware.nvidia = {
     modesetting.enable = true;
