@@ -7,6 +7,7 @@
       ../../home-manager/git.nix
       ../../home-manager/mpv/mpv.nix
       ../../home-manager/firefox.nix
+      ../../home-manager/yt-dlp.nix
       ../../home-manager/theming.nix
       ../../home-manager/packages.nix
     ];

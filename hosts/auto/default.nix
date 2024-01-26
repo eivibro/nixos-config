@@ -13,22 +13,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
-  boot.kernelParams = [ "ip=dhcp" ];
   boot.kernel.sysctl."kernel.sysrq" = 1;
-  boot.initrd = {
-    availableKernelModules = [ "e1000e" ];
-    network = {
-      enable = true;
-      ssh = {
-        enable = true;
-        port = 2222;
-	shell = "/bin/cryptsetup-askpass";
-        hostKeys = [ "/etc/secrets/initrd/ssh_host_ed25519_key" ];
-        authorizedKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF2L5pouZVhwl3YAYSc7OEQQseM5fVFYD2/zzVqHzzzA root@auto" ]; 
-      };
-    };
-  };
-  networking.hostName = "auto"; # Define your hostname.
+  networking.hostName = "auto"; 
 
   # Set your time zone.
   time.timeZone = "Europe/Oslo";

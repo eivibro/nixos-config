@@ -21,7 +21,6 @@
     ventoy-full
     wl-clipboard
     wlr-randr
-    yt-dlp
     ytfzf
   ];
 }
