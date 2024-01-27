@@ -6,6 +6,7 @@
     brightnessctl
     croc
     discord
+    element-desktop-wayland
     htop
     hunspell
     hunspellDicts.nb-no

@@ -11,6 +11,9 @@
       ../../home-manager/theming.nix
       ../../home-manager/packages.nix
     ];
+  home.packages = with pkgs; [
+    steam
+  ];
 
   home.username = "eivbro";
   home.homeDirectory = "/home/eivbro";
