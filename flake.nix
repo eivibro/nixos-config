@@ -30,7 +30,13 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";  
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-    stylix.url = "github:danth/stylix";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, hyprland, nur, nixos-hardware, disko, sops-nix, stylix, ... }:
@@ -49,13 +55,6 @@
         specialArgs = { inherit inputs; };
         modules = [
           disko.nixosModules.disko
-	  stylix.nixosModules.stylix 
-	  {
-            stylix = {
-              image = ./hosts/auto/wallpaper.jpg;
-	      polarity = "dark";
-            };
-	  }
           hosts/auto/default.nix
 	  hosts/auto/hm-module.nix
         ];

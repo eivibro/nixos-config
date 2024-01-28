@@ -6,7 +6,10 @@
     settings = {
       "$mainMod" = "SUPER";
       monitor = ",preferred,auto,auto";
-      exec-once = "waybar";
+      exec-once = [
+        "waybar"
+	"wpaperd"
+      ];
 
       bind = [
         "$mainMod, Q, exec, kitty"
@@ -139,6 +142,7 @@
       misc = {
           force_default_wallpaper = 0;
       };
+
       animations = {
         enabled = true;
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";

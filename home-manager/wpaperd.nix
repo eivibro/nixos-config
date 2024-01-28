@@ -4,7 +4,8 @@
     enable = true;
     settings = {
       eDP-1 = {
-        path = "../hosts/auto/wallpaper.jpg";
+        #path = "/home/eivbro/nixos-config/hosts/auto/wallpaper.jpg";
+        path = ../hosts/auto/wallpaper.jpg;
 	apply-shadow = true;
       };
     };

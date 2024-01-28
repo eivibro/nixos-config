@@ -8,6 +8,7 @@
       ../../modules/sops.nix
       ../../modules/wifi.nix
       ../../modules/users.nix
+      #../../modules/stylix.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -30,7 +31,8 @@
   # services.xserver.enable = true;
 
   nixpkgs.config.allowUnfree = true;
-  
+    
+ 
   programs.neovim = {
     enable = true;
     defaultEditor = true;
