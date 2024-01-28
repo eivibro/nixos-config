@@ -3,6 +3,7 @@
   # Packages to install
   home.packages = with pkgs; [
     appimage-run
+    bemenu
     brightnessctl
     croc
     discord
@@ -11,6 +12,7 @@
     hunspell
     hunspellDicts.nb-no
     jellyfin-media-player
+    kitty
     libreoffice-qt
     moonlight-qt
     #obsidian

@@ -71,7 +71,6 @@
   hardware.bluetooth.enable = true;
 
   environment.systemPackages = with pkgs; [
-    bemenu
     wget
     wireguard-tools
   ];

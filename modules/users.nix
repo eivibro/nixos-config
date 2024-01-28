@@ -7,7 +7,6 @@
     home = "/home/eivbro";
     extraGroups = [ "wheel" "audio" "video" "networkmanager"];
     packages = with pkgs; [
-      kitty
       pavucontrol
     ];
   };
