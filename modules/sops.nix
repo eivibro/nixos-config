@@ -4,7 +4,6 @@
   sops = {
     defaultSopsFile = ../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
-    #age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
     age.sshKeyPaths = [ "/root/.ssh/ssh_host_ed25519_key" ];
     age.keyFile = "/root/.conig/keys.txt";
     age.generateKey = true;

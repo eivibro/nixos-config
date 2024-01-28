@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   home.pointerCursor = {
     package = pkgs.catppuccin-cursors.frappeTeal;
     name = "Catppuccin-Frappe-Teal-Cursors";
     gtk.enable = true;
-    size = 24;
+    size = lib.mkForce 24;
     x11 = {
       enable = true;
       defaultCursor = "Catppuccin-Frappe-Teal-Cursors";

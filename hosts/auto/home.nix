@@ -8,8 +8,9 @@
       ../../home-manager/mpv/mpv.nix
       ../../home-manager/firefox.nix
       ../../home-manager/yt-dlp.nix
-      ../../home-manager/theming.nix
+      #../../home-manager/theming.nix
       ../../home-manager/packages.nix
+      ../../home-manager/wpaperd.nix
     ];
   home.packages = with pkgs; [
     steam
