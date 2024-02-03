@@ -2,8 +2,7 @@
 {
   programs.waybar = {
     enable = true;
-    #package = inputs.hyprland.packages.x86_64-linux.waybar-hyprland;
-    package = pkgs.waybar;
+    #package = pkgs.waybar;
     settings = [{
       layer = "top";
       positon = "top";

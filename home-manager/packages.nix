@@ -3,7 +3,6 @@
   # Packages to install
   home.packages = with pkgs; [
     appimage-run
-    bemenu
     brightnessctl
     croc
     discord
@@ -12,11 +11,11 @@
     hunspell
     hunspellDicts.nb-no
     jellyfin-media-player
-    kitty
     libreoffice-qt
     moonlight-qt
     #obsidian
     powertop
+    swaylock-fancy
     tmux
     tor-browser-bundle-bin
     unrar
@@ -26,4 +25,8 @@
     wlr-randr
     ytfzf
   ];
+
+  # Programs to use with Stylix
+  programs.bemenu.enable = true;
+  programs.kitty.enable = true;
 }

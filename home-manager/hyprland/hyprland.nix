@@ -20,6 +20,7 @@
         "$mainMod, V, togglefloating, "
         "$mainMod, D, exec, bemenu-run"
         "$mainMod, P, pseudo,"
+        "$mainMod SHIFT, L, exit, swaylock-fancy" 
       
         # Move focus with mainMod + arrow keys
         "$mainMod, left, movefocus, l"
@@ -121,9 +122,29 @@
         follow_mouse = 1;
         touchpad = {
           natural_scroll = true;
-	  tap-to-click = false;
-	};
+          tap-to-click = false;
+        };
         sensitivity = 0;
+      };
+
+      "device:zmk-project-bro-board-keyboard" = {
+        kb_layout = "no";
+	kb_variant = "";
+      };
+
+      "device:bro-board-keyboard" = {
+        kb_layout = "no";
+	kb_variant = "";
+      };
+
+      "device:zmk-project-broxboard-keyboard" = {
+        kb_layout = "no";
+	kb_variant = "";
+      };
+
+      "device:broxboard-keyboard" = {
+        kb_layout = "no";
+	kb_variant = "";
       };
 
       "device:trackpoint" = {

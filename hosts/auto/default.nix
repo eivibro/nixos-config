@@ -16,6 +16,7 @@
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernel.sysctl."kernel.sysrq" = 1;
   networking.hostName = "auto"; 
+  security.pam.services.swaylock = {};
 
   # Set your time zone.
   time.timeZone = "Europe/Oslo";

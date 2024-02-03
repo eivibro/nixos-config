@@ -20,7 +20,10 @@ in {
           inputs.hyprland.homeManagerModules.default
           inputs.stylix.homeManagerModules.stylix
           {
-            stylix.image = ./wallpaper.jpg;
+            stylix.image = ./wallpaper.png;
+	    #stylix.opacity.desktop = 0.5;
+	    #stylix.opacity.applications = 0.5;
+	    stylix.opacity.terminal = 0.95;
             stylix.polarity = "dark";
           }
         ];
