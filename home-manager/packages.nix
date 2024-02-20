@@ -7,11 +7,13 @@
     croc
     discord
     element-desktop-wayland
+    electrum
     htop
     hunspell
     hunspellDicts.nb-no
     jellyfin-media-player
     libreoffice-qt
+    nmap
     moonlight-qt
     #obsidian
     powertop
