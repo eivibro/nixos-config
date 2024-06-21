@@ -127,29 +127,19 @@
         sensitivity = 0;
       };
 
-      "device:zmk-project-bro-board-keyboard" = {
-        kb_layout = "no";
-	kb_variant = "";
-      };
+      #"device:zmk-project-bro-board-keyboard" = {
+      #  kb_layout = "no";
+      #  kb_variant = "";
+      #};
 
-      "device:bro-board-keyboard" = {
-        kb_layout = "no";
-	kb_variant = "";
-      };
+      #"device:bro-board-keyboard" = {
+      #  kb_layout = "no";
+      #  kb_variant = "";
+      #};
 
-      "device:zmk-project-broxboard-keyboard" = {
-        kb_layout = "no";
-	kb_variant = "";
-      };
-
-      "device:broxboard-keyboard" = {
-        kb_layout = "no";
-	kb_variant = "";
-      };
-
-      "device:trackpoint" = {
-        sensitivity = "-0.9";
-      };
+      #"device:trackpoint" = {
+      #  sensitivity = "-0.9";
+      #};
 
       general = {
         gaps_in = 5;
@@ -182,17 +172,13 @@
         preserve_split = true;
       };
       
-      master = {
-          new_is_master = true;
-      };
-      
       gestures = {
           workspace_swipe = false;
       };
       
-      "device:epic-mouse-v1" = {
-          sensitivity = "-0.5";
-      };
+      #"device:epic-mouse-v1" = {
+      #    sensitivity = "-0.5";
+      #};
     };
   };
 }

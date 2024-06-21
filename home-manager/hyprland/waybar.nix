@@ -35,7 +35,8 @@
       };
   
       "clock" = {
-        format = "{:  %R    %d/%m}";
+        #format = "{:  %R    %d/%m}";
+        format = " {:%R    %d/%m}";
         tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         calendar-weeks-pos = "right";
         format-calendar-weeks = "<span color='#99ffdd'><b>W{:%V}</b></span>";

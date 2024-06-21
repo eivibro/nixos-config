@@ -6,6 +6,7 @@ let
     nur.overlay
   ];
 in {
+  programs.ns-usbloader.enable = true;
   programs.hyprland.enable = true;
   imports = 
   [
@@ -20,6 +21,7 @@ in {
           inputs.hyprland.homeManagerModules.default
           inputs.stylix.homeManagerModules.stylix
           {
+	    stylix.enable = true;
             stylix.image = ./wallpaper.png;
 	    #stylix.opacity.desktop = 0.5;
 	    #stylix.opacity.applications = 0.5;

@@ -13,8 +13,8 @@ trap cleanup EXIT
 install -d -m755 "$temp/root/.ssh"
 install -d -m755 "$temp/etc/secrets/initrd"
 
-# Decrypt your private key from the password store and copy it to the temporary directory
-cat /home/eivbro/.ssh/ssh-secret > "$temp/root/.ssh/ssh_host_ed25519_key"
+# Decrypt your private key from the password store and copy it to the temporary irectory
+cat /root/.ssh/ssh_host_ed25519_key > "$temp/root/.ssh/ssh_host_ed25519_key"
 cat /home/eivbro/initrd/ssh_host_ed25519_key > "$temp/etc/secrets/initrd/ssh_host_ed25519_key"
 cat /home/eivbro/initrd/ssh_host_ed25519_key.pub > "$temp/etc/secrets/initrd/ssh_host_ed25519_key.pub"
 
@@ -24,4 +24,4 @@ chmod 600 "$temp/etc/secrets/initrd/ssh_host_ed25519_key"
 chmod 644 "$temp/etc/secrets/initrd/ssh_host_ed25519_key.pub"
 
 # Install NixOS to the host system with our secrets
-nix run github:nix-community/nixos-anywhere -- --disk-encryption-keys /tmp/secret.key /tmp/secret.key --extra-files "$temp" --flake '../.#masterchief' root@192.168.44.2
+nix run github:nix-community/nixos-anywhere -- --disk-encryption-keys /tmp/secret.key /tmp/secret.key --extra-files "$temp" --flake '../.#m720q' root@10.28.80.54

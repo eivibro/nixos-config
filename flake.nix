@@ -23,7 +23,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    #hyprland.url = "github:hyprwm/Hyprland";
     nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     disko.url = "github:nix-community/disko";
@@ -68,6 +69,15 @@
           disko.nixosModules.disko
           hosts/masterchief/default.nix
           hosts/masterchief/hm-module.nix
+        ];
+      };
+      m720q = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          disko.nixosModules.disko
+          hosts/m720q/default.nix
+          hosts/m720q/hm-module.nix
         ];
       };
     };
