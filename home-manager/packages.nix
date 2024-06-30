@@ -6,6 +6,7 @@
     brightnessctl
     croc
     discord
+    distrobox
     element-desktop-wayland
     electrum
     grimblast
