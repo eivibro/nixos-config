@@ -8,7 +8,7 @@
       monitor = ",preferred,auto,auto";
       exec-once = [
         "waybar"
-	"wpaperd"
+	"wpaperd -d"
       ];
 
       bind = [
@@ -18,7 +18,8 @@
         "$mainMod, C, killactive, "
         "$mainMod, F, fullscreen, "
         "$mainMod, V, togglefloating, "
-        "$mainMod, D, exec, bemenu-run"
+        "$mainMod, D, exec, tofi-drun --drun-launch=true" 
+        "$mainMod SHIFT, D, exec, tofi-run | xargs hyprctl dispatch exec" 
         "$mainMod, P, pseudo,"
         "$mainMod SHIFT, L, exit, swaylock-fancy" 
       
@@ -97,7 +98,6 @@
         drop_shadow = true;
         shadow_range = 4;
         shadow_render_power = 3;
-        #"col.shadow" = "rgba(1a1a1aee)";
       };
 
 
@@ -110,10 +110,8 @@
         "float,class:(mpv)"
       ];
 
-      # Some default env vars.
       env = [ 
-        "XCURSOR_SIZE, 24"
-        "XCURSOR_THEME,Catppuccin-Frappe-Teal-Cursors"
+        "XCURSOR_SIZE, 16"
       ];
 
       input = {
@@ -127,26 +125,11 @@
         sensitivity = 0;
       };
 
-      #"device:zmk-project-bro-board-keyboard" = {
-      #  kb_layout = "no";
-      #  kb_variant = "";
-      #};
-
-      #"device:bro-board-keyboard" = {
-      #  kb_layout = "no";
-      #  kb_variant = "";
-      #};
-
-      #"device:trackpoint" = {
-      #  sensitivity = "-0.9";
-      #};
 
       general = {
         gaps_in = 5;
         gaps_out = 5;
         border_size = 2;
-        #"col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        #"col.inactive_border" = "rgba(595959aa)";
         layout = "dwindle";
       };
 
@@ -175,10 +158,6 @@
       gestures = {
           workspace_swipe = false;
       };
-      
-      #"device:epic-mouse-v1" = {
-      #    sensitivity = "-0.5";
-      #};
     };
   };
 }

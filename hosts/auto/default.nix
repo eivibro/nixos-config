@@ -1,38 +1,31 @@
-{ config, pkgs, inputs, lib, ... }:
+{ config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware.nix
-      ./disk-config.nix
-      ../../modules/sops.nix
-      ../../modules/wifi.nix
-      ../../modules/users.nix
-      #../../modules/stylix.nix
-    ];
+  imports = [
+    ./hardware.nix
+    ./disk-config.nix
+    ../../modules/sops.nix
+    ../../modules/wifi.nix
+    ../../modules/users.nix
+    ../../modules/stylix.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernel.sysctl."kernel.sysrq" = 1;
   networking.hostName = "auto"; 
-  security.pam.services.swaylock = {};
+  security.pam.services.hyprlock = {};
 
-  # Set your time zone.
   time.timeZone = "Europe/Oslo";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
     keyMap = "dvorak-no";
   };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
   nixpkgs.config.allowUnfree = true;
-    
  
   programs.neovim = {
     enable = true;
@@ -43,10 +36,9 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   security.rtkit.enable = true;
-  #Audio
+
   services.pipewire = {
     enable = true;
-    # Compatibility shims, adjust according to your needs
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
@@ -56,10 +48,7 @@
   virtualisation = {
     podman = {
       enable = true;
-
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
       dockerCompat = true;
-
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true;
     };
@@ -88,6 +77,8 @@
     hfsprogs
   ];
 
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   fonts.packages = with pkgs; [
     font-awesome
     nerdfonts
@@ -112,7 +103,6 @@
     };
   };
 
-  #xdg.portal.config.common.default = "*";
   system.copySystemConfiguration = false;
   system.stateVersion = "23.05"; 
 

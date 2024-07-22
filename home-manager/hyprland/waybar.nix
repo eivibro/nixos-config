@@ -1,20 +1,18 @@
-{pkgs, inputs, ...}:
+{pkgs, inputs, config, ...}:
 {
   programs.waybar = {
     enable = true;
-    #package = pkgs.waybar;
     settings = [{
       layer = "top";
       positon = "top";
       mode = "dock";
       exclusive = "true";
-      passthrough = "false";
+      passthrough = "true";
       gtk-layer-shell = true;
       modules-left = [ "clock" "hyprland/workspaces" ];
       modules-center = [ "hyprland/window" ];
-      modules-right = [ "battery" "backlight" "pulseaudio" ];
+      modules-right = [ "battery" "backlight" "tray" "pulseaudio" ];
       "backlight" = {
-        #device = "intel_backlight";
         format = "{icon} {percent}%";
         format-icons = [""];
         on-scroll-up = "brightnessctl set 1%+";
@@ -35,14 +33,12 @@
       };
   
       "clock" = {
-        #format = "{:  %R    %d/%m}";
-        format = " {:%R    %d/%m}";
+        format = "  {:%R    %d/%m}";
         tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         calendar-weeks-pos = "right";
         format-calendar-weeks = "<span color='#99ffdd'><b>W{:%V}</b></span>";
       };
   
-      #Fix hyprland/window how?
       "hyprland/window" = {
         format = "{}";
         seperate-outputs = true;
@@ -69,8 +65,13 @@
       }
       
       window#waybar {
-          background: rgba(21, 18, 27, 0);
-          color: #cdd6f4;
+          background-color: transparent;
+          /*background: rgba(21, 18, 27, 0);*/
+          /*color: #cdd6f4;*/
+      }
+
+      window#waybar.hidden {
+          background-color: transparent;
       }
       
       tooltip {
@@ -83,16 +84,16 @@
       
       #workspaces button {
           padding: 5px;
-          color: #313244;
+          color: #${config.stylix.base16Scheme.base04};
           margin-right: 5px;
       }
       
       #workspaces button.active {
-          color: #a6adc8;
+          color: #${config.stylix.base16Scheme.base05};
       }
       
       #workspaces button.focused {
-          color: #a6adc8;
+          color: #${config.stylix.base16Scheme.base07};
           background: #eba0ac;
           border-radius: 10px;
       }
@@ -169,6 +170,7 @@
       
       #clock {
           color: #fab387;
+          color: #${config.stylix.base16Scheme.base07};
           border-radius: 10px 0px 0px 10px;
           margin-left: 5px;
           border-right: 0px;
@@ -181,7 +183,7 @@
       }
       
       #pulseaudio {
-          color: #89b4fa;
+          color: #${config.stylix.base16Scheme.base05};
           border-left: 0px;
           border-right: 0px;
       }
@@ -195,7 +197,7 @@
       }
       
       #battery {
-          color: #a6e3a1;
+          color: #${config.stylix.base16Scheme.base0C};
           border-radius: 0 10px 10px 0;
           margin-right: 10px;
           border-left: 0px;

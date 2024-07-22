@@ -55,6 +55,10 @@
 	    name = "Network manager to Nix";
 	    url = "https://github.com/Janik-Haag/nm2nix";
 	  }
+	  {
+	    name = "Binaries in Nix";
+	    url = "https://unix.stackexchange.com/questions/522822/different-methods-to-run-a-non-nixos-executable-on-nixos/522823#522823";
+	  }
         ];
       };
     };

@@ -18,26 +18,18 @@
     ];
   };
 
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    #hyprland.url = "github:hyprwm/Hyprland";
     nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";  
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-    stylix = {
-      url = "github:danth/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
-    };
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, hyprland, nur, nixos-hardware, disko, sops-nix, stylix, ... }:
@@ -55,6 +47,8 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
+	  inputs.stylix.nixosModules.stylix
+	  nixos-hardware.nixosModules.lenovo-thinkpad-t440s
           disko.nixosModules.disko
           hosts/auto/default.nix
 	  hosts/auto/hm-module.nix
