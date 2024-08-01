@@ -10,7 +10,6 @@
     extra-trusted-users = [
       "eivbro"
     ];
-
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -47,15 +46,13 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-	  inputs.stylix.nixosModules.stylix
+	  stylix.nixosModules.stylix
 	  nixos-hardware.nixosModules.lenovo-thinkpad-t440s
           disko.nixosModules.disko
           hosts/auto/default.nix
 	  hosts/auto/hm-module.nix
         ];
       };
-    };
-    nixosConfigurations = {
       masterchief = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
@@ -74,16 +71,28 @@
           hosts/m720q/hm-module.nix
         ];
       };
+      x230 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+	  stylix.nixosModules.stylix
+	  nixos-hardware.nixosModules.lenovo-thinkpad-x230
+          disko.nixosModules.disko
+          hosts/x230/default.nix
+	  hosts/x230/hm-module.nix
+        ];
+      };
+      elev = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+	  stylix.nixosModules.stylix
+	  nixos-hardware.nixosModules.common-cpu-intel
+          disko.nixosModules.disko
+          hosts/elev/default.nix
+	  hosts/elev/hm-module.nix
+        ];
+      };
     };
-    #nixosConfigurations = {
-    #  x230 = nixpkgs.lib.nixosSystem {
-    #    system = "x86_64-linux";
-    #    specialArgs = { inherit inputs; };
-    #    modules = [
-    #      hosts/x230.nix
-    #      home-manager/module.nix
-    #    ];
-    #  };
-    #};
   };
 }

@@ -1,6 +1,7 @@
 { lib
 , stdenv
 , autoPatchelfHook 
+, fetchurl
 , at-spi2-atk
 , cairo
 , fontconfig
@@ -19,13 +20,18 @@
 }:
 
 stdenv.mkDerivation rec {
-  pname = "cake-wallet-${version}";
-
-  lib = ./lib;
-  data = ./data;
-  src = ./cake_wallet;
+  name = "cake-wallet";
   version = "4.18.2";
   system = "x86_64-linux";
+
+  src = 
+    if stdenv.hostPlatform.system == system then
+      fetchurl {
+        url = "https://github.com/cake-tech/cake_wallet/releases/download/v4.18.2/Cake_Wallet_v${version}_Linux.tar.xz";
+        sha256 = "73db49b6a844b28f3dd70cfb8a195cd42bd5ae1739b17422ed6541c447418267";
+      }
+    else throw "${name} is not supported on ${stdenv.hostPlatform.system}";
+
 
   # Required for compilation
   nativeBuildInputs = [
@@ -51,19 +57,18 @@ stdenv.mkDerivation rec {
     xz
   ];
 
-  unpackPhase = ":";
+  unpackPhase = "tar xf ${src}";
 
-  # Extract and copy executable in $out/bin
+  # Extract and copy executable in $out
   installPhase = ''
     mkdir -p $out/bin
-    cp $src $out/bin/${pname}
-    chmod +x $out/bin/${pname}
-    cp -rav $lib $out/bin/lib
-    cp -rav $data $out/bin/data
+    cp -ar Cake_Wallet_v${version}_Linux/* $out/bin
   '';
 
-  meta = with stdenv.lib; {
-    description = "Cake Wallet";
-    platforms = [ "x86_64-linux" ];
+  meta = with lib; {
+    homepage = "https://cakewallet.com/";
+    description = "Store, send and exchange crypto";
+    license = licenses.mit;
+    platforms = [ system ];
   };
 }
