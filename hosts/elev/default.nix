@@ -75,7 +75,7 @@
     wget
     wireguard-tools
     hfsprogs
-    (callPackage ./cake-wallet.nix {})
+    #(callPackage ./cake-wallet.nix {})
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
