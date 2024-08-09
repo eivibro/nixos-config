@@ -75,6 +75,8 @@
     nerdfonts
   ];
 
+  system.copySystemConfiguration = false;
+  system.stateVersion = "23.05"; 
 }
 
 

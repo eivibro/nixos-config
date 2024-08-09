@@ -1,60 +1,49 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      #<nixos-hardware/lenovo/thinkpad/t440s>
-      ./hardware-autot440s.nix
-      ../deploy/disko-nixos.nix
-      ./sops.nix
-      ./wifi.nix
-      ./users.nix
-    ];
-
-  # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernel.sysctl."kernel.sysrq" = 1;
 
-  networking.hostName = "auto";
-  networking.networkmanager.enable = true;
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
 
-  # Set your time zone.
+  security.pam.services.hyprlock = {};
+  security.rtkit.enable = true;
   time.timeZone = "Europe/Oslo";
 
- # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
     keyMap = "dvorak-no";
   };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
   nixpkgs.config.allowUnfree = true;
-  
-  # NeoVim
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-
-  # Nix Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  security.rtkit.enable = true;
+  services.openssh.enable = true;
+
   services.pipewire = {
     enable = true;
-    # Compatibility shims, adjust according to your needs
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
   };
 
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
   # Power tuning 
+  services.system76-scheduler.settings.cfsProfiles.enable = true;
   services.thermald.enable = true;
   services.power-profiles-daemon.enable = false;
   services.tlp = {
@@ -68,26 +57,27 @@
     };
   };
 
-
   hardware.bluetooth.enable = true;
 
   environment.systemPackages = with pkgs; [
-    bemenu
-    brightnessctl
     wget
     wireguard-tools
+    hfsprogs
+    #(callPackage ./cake-wallet.nix {})
   ];
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  environment.pathsToLink = [ "/share/bash-completion" ];
 
   fonts.packages = with pkgs; [
     font-awesome
     nerdfonts
   ];
 
-  services.openssh.enable = true;
-  
-  networking.firewall.enable = false;
   system.copySystemConfiguration = false;
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.05"; 
 
 }
+
 

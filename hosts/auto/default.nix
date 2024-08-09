@@ -8,7 +8,7 @@
     ../../modules/wifi.nix
     ../../modules/users.nix
     ../../modules/stylix.nix
-    ../../modules/standard-system.nix
+    ../../modules/standard-laptop.nix
   ];
 
   networking.hostName = "auto"; 
@@ -29,9 +29,5 @@
       ];
     };
   };
-
-  system.copySystemConfiguration = false;
-  system.stateVersion = "23.05"; 
-
 }
 

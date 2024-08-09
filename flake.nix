@@ -34,14 +34,6 @@
   outputs = inputs@{ self, nixpkgs, home-manager, hyprland, nur, nixos-hardware, disko, sops-nix, stylix, ... }:
   {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          hosts/t440s/default.nix
-	  hosts/t440s/hm-module.nix
-        ];
-      };
       auto = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
@@ -58,6 +50,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           disko.nixosModules.disko
+	  stylix.nixosModules.stylix
           hosts/masterchief/default.nix
           hosts/masterchief/hm-module.nix
         ];
