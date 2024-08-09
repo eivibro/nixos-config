@@ -80,6 +80,8 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  environment.pathsToLink = [ "/share/bash-completion" ];
+
   fonts.packages = with pkgs; [
     font-awesome
     nerdfonts

@@ -24,4 +24,9 @@
   home.stateVersion = "23.05";
 
   programs.home-manager.enable = true;
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+    historyFileSize = 10000;
+  };
 }
