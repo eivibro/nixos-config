@@ -23,9 +23,5 @@
   home.homeDirectory = "/home/elev";
   home.stateVersion = "23.05";
 
-  programs.vscode = {
-    package = pkgs.vscodium;
-    enable = true;
-  };
   programs.home-manager.enable = true;
 }

@@ -64,6 +64,7 @@
     wireguard-tools
     hfsprogs
     #(callPackage ./cake-wallet.nix {})
+    (callpackage ./godot4-rc3.nix {})
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
