@@ -4,11 +4,11 @@
   imports = [
     ./hardware.nix
     ./disk-config.nix
-    ../../modules/sops.nix
-    ../../modules/wifi.nix
-    ../../modules/users-elev.nix
-    ../../modules/stylix.nix
-    ../../modules/standard-laptop.nix
+    ../../modules/sops-course.nix
+    ../../modules/wifi-course.nix
+    ../../modules/users-course.nix
+    ../../modules/stylix-course.nix
+    ../../modules/standard-course.nix
   ];
 
   networking.hostName = "auto"; 

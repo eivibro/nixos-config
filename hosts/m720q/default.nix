@@ -4,9 +4,9 @@
   imports = [
     ./hardware.nix
     ./disk-config.nix
-    ../../modules/sops.nix
-    ../../modules/wifi.nix
-    ../../modules/users.nix
+    ../../modules/sops-course.nix
+    ../../modules/wifi-course.nix
+    ../../modules/users-course.nix
     ../../modules/stylix.nix
     ../../modules/standard-desktop.nix
   ];

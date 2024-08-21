@@ -55,15 +55,6 @@
           hosts/masterchief/hm-module.nix
         ];
       };
-      m720q = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          disko.nixosModules.disko
-          hosts/m720q/default.nix
-          hosts/m720q/hm-module.nix
-        ];
-      };
       x230 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
@@ -84,6 +75,16 @@
           disko.nixosModules.disko
           hosts/elev/default.nix
 	  hosts/elev/hm-module.nix
+        ];
+      };
+      m720q = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+	  stylix.nixosModules.stylix
+          disko.nixosModules.disko
+          hosts/m720q/default.nix
+          hosts/m720q/hm-module.nix
         ];
       };
     };

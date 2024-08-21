@@ -16,8 +16,8 @@
     steam
   ];
 
-  home.username = "eivbro";
-  home.homeDirectory = "/home/eivbro";
+  home.username = "elev";
+  home.homeDirectory = "/home/elev";
   home.stateVersion = "23.05";
 
   # Let Home Manager install and manage itself.

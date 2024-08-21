@@ -12,6 +12,7 @@
       "extensions.experimental.affinity" = {
         "asvetliakov.vscode-neovim" = 1;
       };
+      "workbench.startupEditor" = "none";
     };
   };
 }
