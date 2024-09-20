@@ -16,7 +16,7 @@ in {
     inputs.home-manager.nixosModules.home-manager
     {
       home-manager.useGlobalPkgs = true;
-      home-manager.backupFileExtension = "backup0";
+      home-manager.backupFileExtension = "backup";
       home-manager.useUserPackages = true;
       home-manager.users.elev = {
         home.username = "elev";

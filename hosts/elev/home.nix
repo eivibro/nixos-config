@@ -16,9 +16,10 @@
 #      ../../home-manager/wpaperd.nix
       ../../home-manager/vscodium.nix
     ];
-#  home.packages = with pkgs; [
+  home.packages = with pkgs; [
 #    steam
-#  ];
+    google-chrome
+  ];
 
   home.stateVersion = "23.05";
 
