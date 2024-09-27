@@ -4,6 +4,7 @@
   nixConfig = {
     experimental-features = [ "nix-command" "flakes" ];
     extra-substituters = [
+      "https://cuda-maintainers.cachix.org"
       "https://nix-community.cachix.org"
       "https://hyprland.cachix.org"
     ];
@@ -14,6 +15,7 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
     ];
   };
 
@@ -29,9 +31,12 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
+    blender-bin = {
+      url = "github:edolstra/nix-warez?dir=blender";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, hyprland, nur, nixos-hardware, disko, sops-nix, stylix, ... }:
+  outputs = inputs@{ self, blender-bin, nixpkgs, home-manager, hyprland, nur, nixos-hardware, disko, sops-nix, stylix, ... }:
   {
     nixosConfigurations = {
       auto = nixpkgs.lib.nixosSystem {
@@ -53,7 +58,11 @@
 	  stylix.nixosModules.stylix
           hosts/masterchief/default.nix
           hosts/masterchief/hm-module.nix
-        ];
+          ({config, pkgs, ...}: {
+            nixpkgs.overlays = [ blender-bin.overlays.default ];
+            environment.systemPackages = with pkgs; [ blender_4_2];
+          })
+          ];
       };
       x230 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

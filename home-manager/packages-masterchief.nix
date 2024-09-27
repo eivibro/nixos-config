@@ -2,8 +2,7 @@
 {
   # Packages to install
   home.packages = with pkgs; [
-    yuzu-mainline
+    cudaPackages.cudatoolkit
     sunshine
-    element-desktop
   ];
 }

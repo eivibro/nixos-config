@@ -11,7 +11,7 @@
     ../../modules/standard-desktop.nix
   ];
 
-  boot.kernelParams = [ "ip=::::masterchief:enp4s0:dhcp:" ];
+  boot.kernelParams = [ "ip=::::masterchief:eno1:dhcp:" ];
   boot.initrd = {
     availableKernelModules = [ "igb" ];
     network = {
@@ -37,10 +37,8 @@
   };
 
   # Nvidia
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
   };
 
   services.xserver.videoDrivers = ["nvidia"];
@@ -56,7 +54,7 @@
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
-    open = true;
+    open = false;
     nvidiaSettings = true;
   };
  
