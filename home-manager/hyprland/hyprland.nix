@@ -5,7 +5,8 @@
 
     settings = {
       "$mainMod" = "SUPER";
-      monitor=",2560x1440@144,0x0,1";
+      monitor="DP-3,2560x1440@144,0x0,1";
+      monitor="Unknown-1,disable";
       exec-once = [
         "waybar"
 	"wpaperd -d"
