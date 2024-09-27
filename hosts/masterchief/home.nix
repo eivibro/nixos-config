@@ -3,7 +3,7 @@
   imports = 
     [
       ../../home-manager/hyprland/waybar.nix
-      ../../home-manager/hyprland/hyprland.nix
+      ../../home-manager/hyprland/default.nix
       ../../home-manager/git.nix
       ../../home-manager/gammastep.nix
       ../../home-manager/mpv/mpv-masterchief.nix
