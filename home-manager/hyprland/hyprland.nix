@@ -123,6 +123,13 @@
           tap-to-click = false;
         };
         sensitivity = 0;
+        resolve_binds_by_sym = "1";
+      };
+
+      device = {
+        name = "zmk-project-broxboard-keyboard";
+	kb_layout = "no";
+        resolve_binds_by_sym = "1";
       };
 
 

@@ -29,6 +29,8 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
+    #mobile-nixos.url = "github:nixos/mobile-nixos";
+    #mobile-nixos.flake = false;
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, hyprland, nur, nixos-hardware, disko, sops-nix, stylix, ... }:

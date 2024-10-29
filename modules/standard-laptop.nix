@@ -10,6 +10,12 @@
     enable = true;
     defaultEditor = true;
   };
+  
+  programs.direnv = {
+      enable = true;
+      loadInNixShell = true;
+      nix-direnv.enable = true;
+  };
 
   security.pam.services.hyprlock = {};
   security.rtkit.enable = true;
@@ -63,6 +69,7 @@
     wget
     wireguard-tools
     hfsprogs
+    android-tools
     #(callPackage ./cake-wallet.nix {})
     #(callpackage ./godot4-rc3.nix {})
   ];
