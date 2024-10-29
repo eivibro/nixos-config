@@ -1,7 +1,12 @@
 keys:
   - &admin_eivbro age1dydy045qj27annyg9k0f7akp3auqyq3lnnqjltz9gn3r9zahgu0qzjgaqe
+  - &admin_eibr02 age1lc2fjhqgad6eag3w0kqgevm7n6ctdzrg3h8m4uc8kzjz7a222ctsmvtjeg
 creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:
     - age:
       - *admin_eivbro
+  - path_regex: secrets/secrets-course.yaml$
+    key_groups:
+    - age:
+      - *admin_eibr02

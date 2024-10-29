@@ -116,22 +116,26 @@
 
       input = {
         kb_layout = "no,no";
-        kb_variant = "dvorak,";
+        kb_variant = ",dvorak";
         follow_mouse = 1;
         touchpad = {
           natural_scroll = true;
           tap-to-click = false;
         };
         sensitivity = 0;
-        resolve_binds_by_sym = "1";
+        resolve_binds_by_sym = true;
       };
 
-      device = {
-        name = "zmk-project-broxboard-keyboard";
-	kb_layout = "no";
-        resolve_binds_by_sym = "1";
-      };
-
+      device = [
+        {
+          name = "zmk-project-broxboard-keyboard";
+          kb_layout = "no";
+	}
+	{
+          name = "broxboard-keyboard";
+          kb_layout = "no";
+	}
+      ];
 
       general = {
         gaps_in = 5;
