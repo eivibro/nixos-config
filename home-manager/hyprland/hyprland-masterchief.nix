@@ -93,7 +93,7 @@
       
       master {
           # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-          new_is_master = true
+          new_status = master
       }
       
       gestures {
@@ -103,13 +103,16 @@
       
       # Example per-device config
       # See https://wiki.hyprland.org/Configuring/Keywords/#executing for more
-      device:epic-mouse-v1 {
+      device {
+          name = epic-mouse-v1
           sensitivity = -0.5
       }
       
-      device:trackpoint {
+      device:{
+          name = trackpoint 
           sensitivity = -0.9
       }
+
       # Example windowrule v1
       # windowrule = float, ^(kitty)$
       # Example windowrule v2
