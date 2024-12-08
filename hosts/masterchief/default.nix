@@ -26,7 +26,10 @@
     };
   };
 
-  environment.systemPackages = [ pkgs.qemu ];
+  environment.systemPackages = [ 
+    pkgs.qemu 
+    pkgs.podman-compose
+  ];
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   
@@ -72,7 +75,6 @@
     acceleration = "cuda";
     loadModels = [
       "llama3.2"
-      "fixt/home-3b-v3"
       "mistral"
       "llama3.1:8b"
     ];
