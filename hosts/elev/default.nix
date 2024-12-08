@@ -16,6 +16,9 @@
 
   system.copySystemConfiguration = false;
   system.stateVersion = "23.05"; 
+  services.xserver.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;  
 
 }
 

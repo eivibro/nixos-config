@@ -1,8 +1,10 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    anki
     appimage-run
     brightnessctl
+    godot_4
     grimblast
     htop
     hunspell

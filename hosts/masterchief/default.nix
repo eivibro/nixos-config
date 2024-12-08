@@ -11,7 +11,7 @@
     ../../modules/standard-desktop.nix
   ];
 
-  boot.kernelParams = [ "ip=::::masterchief:enp4s0:dhcp:" ];
+  boot.kernelParams = [ "ip=::::masterchief:eno1:dhcp:" ];
   boot.initrd = {
     availableKernelModules = [ "igb" ];
     network = {
@@ -26,6 +26,14 @@
     };
   };
 
+  environment.systemPackages = [ 
+    pkgs.qemu 
+    pkgs.podman-compose
+  ];
+
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  
+
   networking.hostName = "masterchief"; 
 
   environment.sessionVariables = rec {
@@ -37,10 +45,8 @@
   };
 
   # Nvidia
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
   };
 
   services.xserver.videoDrivers = ["nvidia"];
@@ -52,11 +58,42 @@
     fileSystems = [ "/" "/home" ];
   };
 
+  #services.wyoming.satellite = {
+  #  enable = true;
+  #  user = "eivbro";
+  #  group = "audio";
+  #  microphone.command = "arecord -D default -r 16000 -c 1 -f S16_LE -t raw";
+  #  name = "masterchief";
+  #  area = "Kitchen";
+  #};
+
+  #services.wyoming.openwakeword.enable = true;
+
+  services.ollama = {
+    enable = true;
+    host = "0.0.0.0";
+    acceleration = "cuda";
+    loadModels = [
+      "llama3.2"
+      "mistral"
+      "llama3.1:8b"
+    ];
+  };
+
+  services.open-webui = {
+    enable = true;
+    host = "0.0.0.0";
+    environment = {
+      OLLAMA_API_BASE_URL = "http://127.0.0.1:11434";
+      WEBUI_AUTH = "false";
+    };
+  };
+
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
-    open = true;
+    open = false;
     nvidiaSettings = true;
   };
  

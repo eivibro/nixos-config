@@ -19,6 +19,9 @@
     hashedPasswordFile = config.sops.secrets."users/teacher".path;
     home = "/home/teacher";
     extraGroups = [ "wheel" "audio" "video" "networkmanager"];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJCWeg3T/AlBu0SQ8PgTJAnwalKDqx4tsK4J3BaRwzit eivbro@auto"
+    ];
     packages = with pkgs; [
       pavucontrol
     ];

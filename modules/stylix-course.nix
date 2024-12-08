@@ -8,6 +8,6 @@
     cursor.name = "Bibata-Modern-Ice";
     cursor.size = 16;
     opacity.desktop = 0.9;
-    polarity = "dark";
+    polarity = "light";
   };
 }

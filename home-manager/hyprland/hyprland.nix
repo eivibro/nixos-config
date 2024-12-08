@@ -5,7 +5,10 @@
 
     settings = {
       "$mainMod" = "SUPER";
-      monitor = ",preferred,auto,auto";
+      monitor = [
+        "DP-3,2560x1440@144,0x0,1"
+        "Unknown-1,disable"
+      ];
       exec-once = [
         "waybar"
 	"wpaperd -d"
@@ -95,9 +98,11 @@
             size = 3;
             passes = 1;
 	};
-        drop_shadow = true;
-        shadow_range = 4;
-        shadow_render_power = 3;
+	shadow = {
+	  enabled = true;
+          range = 4;
+          render_power = 3;
+	};
       };
 
 
@@ -116,15 +121,26 @@
 
       input = {
         kb_layout = "no,no";
-        kb_variant = "dvorak,";
+        kb_variant = ",dvorak";
         follow_mouse = 1;
         touchpad = {
           natural_scroll = true;
           tap-to-click = false;
         };
         sensitivity = 0;
+        resolve_binds_by_sym = true;
       };
 
+      device = [
+        {
+          name = "zmk-project-broxboard-keyboard";
+          kb_layout = "no";
+	}
+	{
+          name = "broxboard-keyboard";
+          kb_layout = "no";
+	}
+      ];
 
       general = {
         gaps_in = 5;
