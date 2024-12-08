@@ -5,7 +5,7 @@
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets."users/eivbro".path;
     home = "/home/eivbro";
-    extraGroups = [ "wheel" "audio" "video" "networkmanager" "adbusers"];
+    extraGroups = [ "docker" "wheel" "audio" "video" "networkmanager" "adbusers"];
     packages = with pkgs; [
       pavucontrol
     ];
