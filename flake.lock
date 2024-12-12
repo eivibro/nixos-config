@@ -644,15 +644,6 @@
     "nur": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs_3",
-        "treefmt-nix": "treefmt-nix"
-      },
-      "locked": {
-        "lastModified": 1733663205,
-        "narHash": "sha256-7O+8rbX8eMBp4ZljoYcgXWx8n1u2rBL+Bfz387g87tA=",
-        "owner": "nix-community",
-        "repo": "NUR",
-        "rev": "ba5f9019335390ab605713c9e56428f031ba2a35",
         "nixpkgs": "nixpkgs_4",
         "treefmt-nix": "treefmt-nix"
       },
