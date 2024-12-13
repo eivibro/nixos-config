@@ -26,6 +26,14 @@
     };
   };
 
+  environment.systemPackages = [ 
+    pkgs.qemu 
+    pkgs.podman-compose
+  ];
+
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  
+
   networking.hostName = "masterchief"; 
 
   environment.sessionVariables = rec {
@@ -48,6 +56,37 @@
     enable = true;
     interval = "monthly";
     fileSystems = [ "/" "/home" ];
+  };
+
+  #services.wyoming.satellite = {
+  #  enable = true;
+  #  user = "eivbro";
+  #  group = "audio";
+  #  microphone.command = "arecord -D default -r 16000 -c 1 -f S16_LE -t raw";
+  #  name = "masterchief";
+  #  area = "Kitchen";
+  #};
+
+  #services.wyoming.openwakeword.enable = true;
+
+  services.ollama = {
+    enable = true;
+    host = "0.0.0.0";
+    acceleration = "cuda";
+    loadModels = [
+      "llama3.2"
+      "mistral"
+      "llama3.1:8b"
+    ];
+  };
+
+  services.open-webui = {
+    enable = true;
+    host = "0.0.0.0";
+    environment = {
+      OLLAMA_API_BASE_URL = "http://127.0.0.1:11434";
+      WEBUI_AUTH = "false";
+    };
   };
 
   hardware.nvidia = {

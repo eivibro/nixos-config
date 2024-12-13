@@ -14,6 +14,8 @@
   networking.hostName = "x230"; 
   networking.firewall.enable = false;
 
+  virtualisation.waydroid.enable = true;
+
   networking.wg-quick.interfaces = {
     wg0 = {
       address = [ "172.16.16.4/24" ];

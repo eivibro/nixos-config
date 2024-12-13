@@ -10,12 +10,13 @@
     enable = true;
     defaultEditor = true;
   };
-  
+
   programs.direnv = {
       enable = true;
       loadInNixShell = true;
       nix-direnv.enable = true;
   };
+
 
   security.pam.services.hyprlock = {};
   security.rtkit.enable = true;
@@ -24,7 +25,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
-    keyMap = "no";
+    keyMap = "dvorak-no";
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -71,7 +72,6 @@
     hfsprogs
     android-tools
     #(callPackage ./cake-wallet.nix {})
-    #(callpackage ./godot4-rc3.nix {})
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -80,7 +80,7 @@
 
   fonts.packages = with pkgs; [
     font-awesome
-    nerdfonts
+    nerd-fonts.droid-sans-mono
   ];
 
   system.copySystemConfiguration = false;

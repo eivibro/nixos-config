@@ -31,11 +31,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
-    #mobile-nixos.url = "github:nixos/mobile-nixos";
-    #mobile-nixos.flake = false;
-    blender-bin = {
-      url = "github:edolstra/nix-warez?dir=blender";
-    };
+    blender-bin.url = "github:edolstra/nix-warez?dir=blender";
   };
 
   outputs = inputs@{ self, blender-bin, nixpkgs, home-manager, hyprland, nur, nixos-hardware, disko, sops-nix, stylix, ... }:

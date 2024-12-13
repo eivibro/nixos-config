@@ -3,7 +3,7 @@ let
   self = { inherit inputs; };
   overlays = with inputs;
   [
-    nur.overlay
+    nur.overlays.default
   ];
 in {
   programs.hyprland = {
