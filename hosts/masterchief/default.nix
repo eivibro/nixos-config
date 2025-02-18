@@ -29,6 +29,7 @@
   environment.systemPackages = [ 
     pkgs.qemu 
     pkgs.podman-compose
+    pkgs.esptool
   ];
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
@@ -77,6 +78,7 @@
       "llama3.2"
       "mistral"
       "llama3.1:8b"
+      "deepseek-r1"
     ];
   };
 
