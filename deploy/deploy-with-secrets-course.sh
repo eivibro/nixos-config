@@ -3,9 +3,9 @@
 temp=$(mktemp -d)
 
 # What, by who and where
-host=../.#elev
-deployer=eivbro
-ip=10.28.84.30
+host=../.#m720q
+deployer=teacher
+ip=10.28.80.52
 
 # Function to cleanup temporary directory on exit
 cleanup() {
@@ -18,9 +18,9 @@ install -d -m755 "$temp/root/.ssh"
 install -d -m755 "$temp/etc/secrets/initrd"
 
 # Decrypt your private key from the password store and copy it to the temporary directory
-cat /home/$deployer/.ssh/school > "$temp/root/.ssh/ssh_host_ed25519_key"
-cat /home/$deployer/.ssh/school > "$temp/etc/secrets/initrd/ssh_host_ed25519_key"
-cat /home/$deployer/.ssh/school.pub > "$temp/etc/secrets/initrd/ssh_host_ed25519_key.pub"
+cat /home/$deployer/.ssh/ssh_host_ed25519_key > "$temp/root/.ssh/ssh_host_ed25519_key"
+cat /home/$deployer/.ssh/ssh_host_ed25519_key > "$temp/etc/secrets/initrd/ssh_host_ed25519_key"
+cat /home/$deployer/.ssh/ssh_host_ed25519_key.pub > "$temp/etc/secrets/initrd/ssh_host_ed25519_key.pub"
 
 # Set the correct permissions so sshd will accept the key
 chmod 600 "$temp/root/.ssh/ssh_host_ed25519_key"
