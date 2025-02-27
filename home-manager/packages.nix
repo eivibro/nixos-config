@@ -7,8 +7,9 @@
     croc
     discord
     distrobox
-    element-desktop-wayland
+    element-desktop
     electrum
+    freecad-wayland
     grimblast
     htop
     hunspell

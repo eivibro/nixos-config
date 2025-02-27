@@ -73,7 +73,7 @@
 
   fonts.packages = with pkgs; [
     font-awesome
-    nerdfonts
+    nerd-fonts.droid-sans-mono
   ];
 
   system.copySystemConfiguration = false;

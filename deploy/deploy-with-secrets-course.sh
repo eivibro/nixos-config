@@ -3,9 +3,9 @@
 temp=$(mktemp -d)
 
 # What, by who and where
-host=../.#m720q
+host=../.#elev
 deployer=teacher
-ip=10.28.80.52
+ip=10.28.84.32
 
 # Function to cleanup temporary directory on exit
 cleanup() {

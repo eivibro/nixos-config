@@ -11,6 +11,7 @@
       ../../home-manager/theming.nix
       ../../home-manager/packages.nix
       ../../home-manager/wpaperd.nix
+      ../../home-manager/vscodium.nix
     ];
   home.packages = with pkgs; [
     steam
