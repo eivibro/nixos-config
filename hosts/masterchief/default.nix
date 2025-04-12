@@ -11,9 +11,9 @@
     ../../modules/standard-desktop.nix
   ];
 
-  boot.kernelParams = [ "ip=::::masterchief:eno1:dhcp:" ];
+  boot.kernelParams = [ "ip=::::masterchief:enp8s0:dhcp:" ];
   boot.initrd = {
-    availableKernelModules = [ "igb" ];
+    availableKernelModules = [ "igc" ];
     network = {
       enable = true;
       ssh = {
@@ -89,6 +89,13 @@
       OLLAMA_API_BASE_URL = "http://127.0.0.1:11434";
       WEBUI_AUTH = "false";
     };
+  };
+
+  services.sunshine = {
+    enable = true;
+    #autoStart = true;
+    capSysAdmin = true;  # Required for Wayland, optional for Xorg
+    openFirewall = true;
   };
 
   hardware.nvidia = {

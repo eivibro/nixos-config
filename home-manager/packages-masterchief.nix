@@ -4,6 +4,6 @@
   home.packages = with pkgs; [
     cudaPackages.cudatoolkit
     freecad-wayland
-    sunshine
+    bottles
   ];
 }

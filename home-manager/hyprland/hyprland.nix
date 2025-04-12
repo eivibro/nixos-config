@@ -113,6 +113,7 @@
         "size 30% 30%,title:(Picture-in-Picture)"
         "noinitialfocus,class:(mpv)"
         "float,class:(mpv)"
+	"opaque, title:.*FreeCAD.*"
       ];
 
       env = [ 

@@ -7,7 +7,7 @@
     croc
     discord
     distrobox
-    element-desktop-wayland
+    element-desktop
     electrum
     grimblast
     htop

@@ -17,7 +17,7 @@
           "browser.startup.homepage" = "https://duckduckgo.com";
 	  "gfx.font_rendering.fontconfig.max_generic_substitutions" = 127;
 	};
-	extensions = with pkgs.nur.repos.rycee.firefox-addons; 
+	extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; 
 	[ 
 	  ublock-origin 
 	  bitwarden
