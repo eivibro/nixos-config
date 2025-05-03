@@ -25,6 +25,10 @@
         "$mainMod SHIFT, D, exec, tofi-run | xargs hyprctl dispatch exec" 
         "$mainMod, P, pseudo,"
         "$mainMod SHIFT, L, exit, swaylock-fancy" 
+
+	# Cycle focus through windows
+        "$mainMod CONTROL, l, cyclenext"
+        "$mainMod CONTROL, h, cycleprev"
       
         # Move focus with mainMod + arrow keys
         "$mainMod, left, movefocus, l"
@@ -113,7 +117,6 @@
         "size 30% 30%,title:(Picture-in-Picture)"
         "noinitialfocus,class:(mpv)"
         "float,class:(mpv)"
-	"opaque, title:.*FreeCAD.*"
       ];
 
       env = [ 
