@@ -2,6 +2,6 @@
 {
   stylix = {
     opacity.terminal = 0.9;
-    targets.nixvim.transparent_bg.main = true;
+    targets.nixvim.transparentBackground.main = true;
   };
 }

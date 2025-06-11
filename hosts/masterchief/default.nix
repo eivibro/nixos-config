@@ -11,9 +11,9 @@
     ../../modules/standard-desktop.nix
   ];
 
-  boot.kernelParams = [ "ip=::::masterchief:eno1:dhcp:" ];
+  boot.kernelParams = [ "ip=::::masterchief:enp8s0:dhcp:" ];
   boot.initrd = {
-    availableKernelModules = [ "igb" ];
+    availableKernelModules = [ "igc" ];
     network = {
       enable = true;
       ssh = {
@@ -91,12 +91,20 @@
     };
   };
 
+  services.sunshine = {
+    enable = true;
+    #autoStart = true;
+    capSysAdmin = true;  # Required for Wayland, optional for Xorg
+    openFirewall = true;
+  };
+
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
   };
  
   programs = {

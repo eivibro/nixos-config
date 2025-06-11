@@ -25,6 +25,10 @@
         "$mainMod SHIFT, D, exec, tofi-run | xargs hyprctl dispatch exec" 
         "$mainMod, P, pseudo,"
         "$mainMod SHIFT, L, exit, swaylock-fancy" 
+
+	# Cycle focus through windows
+        "$mainMod CONTROL, l, cyclenext"
+        #"$mainMod CONTROL, h, cycleprev"
       
         # Move focus with mainMod + arrow keys
         "$mainMod, left, movefocus, l"
