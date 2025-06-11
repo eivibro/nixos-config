@@ -28,7 +28,7 @@
 
 	# Cycle focus through windows
         "$mainMod CONTROL, l, cyclenext"
-        "$mainMod CONTROL, h, cycleprev"
+        #"$mainMod CONTROL, h, cycleprev"
       
         # Move focus with mainMod + arrow keys
         "$mainMod, left, movefocus, l"
