@@ -81,7 +81,8 @@
         "$mainMod, S, pin"
 
         # Switch keyboard variant
-        "$mainMod, T, exec, hyprctl switchxkblayout at-translated-set-2-keyboard next"
+        #"$mainMod, T, exec, hyprctl switchxkblayout at-translated-set-2-keyboard next"
+        "$mainMod, T, exec, hyprctl switchxkblayout lite-on-technology-corp.-hp-basic-usb-keyboard next"
       ];
 
       bindm = [

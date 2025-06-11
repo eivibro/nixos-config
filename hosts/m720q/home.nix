@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   imports = 
     [
@@ -21,4 +21,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  stylix.targets.firefox.profileNames = [ "default" ];
 }

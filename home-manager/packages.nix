@@ -5,7 +5,7 @@
     appimage-run
     brightnessctl
     croc
-    discord
+    #discord
     distrobox
     element-desktop
     electrum
@@ -14,7 +14,6 @@
     htop
     hunspell
     hunspellDicts.nb-no
-    jellyfin-media-player
     kicad
     libreoffice-qt
     nmap

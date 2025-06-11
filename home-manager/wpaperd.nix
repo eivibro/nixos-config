@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
 {
-  programs.wpaperd = {
+  services.wpaperd = {
     enable = true;
     settings = {
       eDP-1 = {
