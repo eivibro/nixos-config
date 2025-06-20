@@ -24,7 +24,7 @@
     tor-browser-bundle-bin
     unrar
     unzip
-    ventoy-bin
+    #ventoy-bin
     wl-clipboard
     wlr-randr
   ];

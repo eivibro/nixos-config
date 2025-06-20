@@ -11,6 +11,17 @@
     defaultEditor = true;
   };
 
+  programs.dconf.enable = true;
+
+  dconf.settings = {
+    "org/gnome/desktop/input-sources" = {
+      sources = [
+        ("xkb", "no")
+      ];
+      current = 0;
+    };
+  };
+
   security.pam.services.hyprlock = {};
   security.rtkit.enable = true;
   time.timeZone = "Europe/Oslo";

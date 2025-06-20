@@ -48,6 +48,17 @@
 	  hosts/auto/hm-module.nix
         ];
       };
+      t460s = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+	  stylix.nixosModules.stylix
+	  nixos-hardware.nixosModules.lenovo-thinkpad-t460s
+          disko.nixosModules.disko
+          hosts/elev/default.nix
+	  hosts/elev/hm-module.nix
+        ];
+      };
       masterchief = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
@@ -82,6 +93,17 @@
           disko.nixosModules.disko
           hosts/elev/default.nix
 	  hosts/elev/hm-module.nix
+        ];
+      };
+      elev-11e = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+	  stylix.nixosModules.stylix
+	  nixos-hardware.nixosModules.common-cpu-intel
+          disko.nixosModules.disko
+          hosts/elev-11e/default.nix
+	  hosts/elev-11e/hm-module.nix
         ];
       };
       m720q = nixpkgs.lib.nixosSystem {
