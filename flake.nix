@@ -48,6 +48,17 @@
 	  hosts/auto/hm-module.nix
         ];
       };
+      x1-carbon = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+	  stylix.nixosModules.stylix
+	  nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
+          disko.nixosModules.disko
+          hosts/x1-carbon/default.nix
+	  hosts/x1-carbon/hm-module.nix
+        ];
+      };
       t460s = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };

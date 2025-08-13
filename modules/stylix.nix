@@ -3,7 +3,7 @@
 {
   stylix = {
     enable = true;
-    image = ../hosts/auto/wallpaper;
+    image = ../hosts/auto/wallpaper.jpg;
     cursor.package = pkgs.bibata-cursors;
     cursor.name = "Bibata-Modern-Ice";
     cursor.size = 16;
