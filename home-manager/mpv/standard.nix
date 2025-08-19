@@ -8,7 +8,6 @@
       vo = "gpu";
       profile = "gpu-hq";
       gpu-context = "wayland";
-      ytdl-raw-options="format-sort=vcodec:h264";
     };
   };
 }
