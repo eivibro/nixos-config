@@ -52,16 +52,18 @@
   # Power tuning 
   services.system76-scheduler = {
     enable = true;
-    settings = {
-      cfsProfiles.enable = true;
-      hybrid = {
-        enable = true;
-        background = "efficiency";
-        foreground = "performance";
-        default = "balance";
-      };
-    };
+    settings.cfsProfiles.enable = true;
   };
+  environment.etc."system76-scheduler/config.toml".text = ''
+    [cfs_profiles]
+    enable = true
+
+    [hybrid]
+    enable = true
+    background = "efficiency"
+    foreground = "performance"
+    default = "balance"
+  '';
   services.thermald.enable = true;
   services.power-profiles-daemon.enable = false;
   services.tlp = {
