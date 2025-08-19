@@ -11,7 +11,7 @@
       gtk-layer-shell = true;
       modules-left = [ "clock" "hyprland/workspaces" ];
       modules-center = [ "hyprland/window" ];
-      modules-right = [ "battery" "backlight" "tray" "pulseaudio" ];
+      modules-right = [ "battery" "custom/power" "backlight" "tray" "pulseaudio" ];
       "backlight" = {
         format = "{icon} {percent}%";
         format-icons = [""];
@@ -25,7 +25,7 @@
           "warning" = 30;
           "critical" = 15;
         };
-        format = "{icon}  {capacity}%";
+        format = "{icon} {capacity}%  {power:.1f} W";
         format-icons = ["" "" "" "" ""];
         format-charging = "  {capacity}%";
         format-plugged = "  {capacity}%";
@@ -202,7 +202,17 @@
           margin-right: 10px;
           border-left: 0px;
       }
-      
+
+      #power {
+        color: #${config.stylix.base16Scheme.base09};
+        border-left: 0px;
+        border-right: 0px;
+        margin-right: 10px;
+        border-radius: 0px 10px 10px 0;
+        background: #1e1e2e;
+        padding: 0px 10px;
+      }      
+
       #custom-weather {
           border-radius: 0px 10px 10px 0px;
           border-right: 0px;
