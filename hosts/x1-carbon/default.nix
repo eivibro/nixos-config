@@ -8,6 +8,7 @@
     ../../modules/wifi.nix
     ../../modules/users.nix
     ../../modules/stylix.nix
+    ../../modules/printing.nix
     ../../modules/standard-laptop.nix
   ];
 

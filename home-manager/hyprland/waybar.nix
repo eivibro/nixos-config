@@ -58,9 +58,8 @@
       * {
           border: none;
           border-radius: 0;
-          font-family: Cartograph CF Nerd Font, monospace;
+          font-family: monospace;
           font-weight: bold;
-          font-size: 14px;
           min-height: 0;
       }
       
@@ -82,6 +81,9 @@
           border-color: #11111b;
       }
       
+      #workspaces button label {
+          font-size: 12px;
+      }
       #workspaces button {
           padding: 5px;
           color: #${config.stylix.base16Scheme.base04};
@@ -110,28 +112,25 @@
           border-radius: 10px;
       }
       
-      #custom-language,
-      #custom-updates,
-      #custom-caffeine,
-      #custom-weather,
       #window,
       #clock,
       #battery,
       #pulseaudio,
-      #network,
       #workspaces,
       #tray,
       #backlight {
+          font-size: 12px;
           background: #1e1e2e;
-          padding: 0px 10px;
+          border-radius: 10px;
           margin: 3px 0px;
-          margin-top: 10px;
+          margin-top: 5px;
           border: 1px solid #181825;
       }
       
       #tray {
           border-radius: 10px;
           margin-right: 10px;
+          margin-left: 10px;
       }
       
       #workspaces {
@@ -140,26 +139,6 @@
           margin-left: 10px;
           padding-right: 0px;
           padding-left: 5px;
-      }
-      
-      #custom-caffeine {
-          color: #89dceb;
-          border-radius: 10px 0px 0px 10px;
-          border-right: 0px;
-          margin-left: 10px;
-      }
-      
-      #custom-language {
-          color: #f38ba8;
-          border-left: 0px;
-          border-right: 0px;
-      }
-      
-      #custom-updates {
-          color: #f5c2e7;
-          border-radius: 10px 0px 0px 10px;
-          border-left: 0px;
-          border-right: 0px;
       }
       
       #window {
@@ -171,14 +150,8 @@
       #clock {
           color: #fab387;
           color: #${config.stylix.base16Scheme.base07};
-          border-radius: 10px 0px 0px 10px;
+          border-radius: 10px;
           margin-left: 5px;
-          border-right: 0px;
-      }
-      
-      #network {
-          color: #f9e2af;
-          border-left: 0px;
           border-right: 0px;
       }
       
@@ -190,7 +163,7 @@
       
       #pulseaudio.microphone {
           color: #cba6f7;
-          border-radius: 0px 10px 10px 0px;
+          border-radius: 10px;
           border-left: 0px;
           border-right: 0px;
           margin-right: 5px;
@@ -198,26 +171,11 @@
       
       #battery {
           color: #${config.stylix.base16Scheme.base0C};
-          border-radius: 0 10px 10px 0;
+          border-radius: 10px;
           margin-right: 10px;
           border-left: 0px;
       }
 
-      #power {
-        color: #${config.stylix.base16Scheme.base09};
-        border-left: 0px;
-        border-right: 0px;
-        margin-right: 10px;
-        border-radius: 0px 10px 10px 0;
-        background: #1e1e2e;
-        padding: 0px 10px;
-      }      
-
-      #custom-weather {
-          border-radius: 0px 10px 10px 0px;
-          border-right: 0px;
-          margin-left: 0px;
-      }
     '';
   };
 }
