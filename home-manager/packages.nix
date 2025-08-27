@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   home.packages = with pkgs; [
     anki
@@ -30,7 +30,10 @@
   ];
 
   # Programs to use with Stylix
-  programs.kitty.enable = true;
+  programs.kitty = {
+    enable = true;
+    font.size = lib.mkForce 10;
+  };
 
   programs.tofi = {
     enable = true;

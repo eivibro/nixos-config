@@ -140,8 +140,13 @@
           padding-right: 0px;
           padding-left: 5px;
       }
+
+      #window label {
+        font-size: 12px;
+      }
       
       #window {
+          font-size: 12px;
           border-radius: 10px;
           margin-left: 60px;
           margin-right: 60px;

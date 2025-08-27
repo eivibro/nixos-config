@@ -7,6 +7,7 @@
       "$mainMod" = "SUPER";
       monitor = [
         "DP-3,2560x1440@144,0x0,1"
+	#"HDMI-A-1,3840x2160@60,1920x0,1,bitdepth,10,cm,hdr,sdrbrightness,1.2,sdrsaturation,0.98"
         "Unknown-1,disable"
       ];
       exec-once = [

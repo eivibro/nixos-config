@@ -5,9 +5,9 @@
     scripts = [ pkgs.mpvScripts.sponsorblock ];
     config = {
       hwdec = "auto-safe";
-      vo = "gpu";
+      vo = "gpu-next";
       profile = "gpu-hq";
-      gpu-context = "wayland";
+      gpu-api= "vulkan";
     };
   };
 }
