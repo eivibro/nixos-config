@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    anki
+    #anki
     appimage-run
     brightnessctl
     croc
