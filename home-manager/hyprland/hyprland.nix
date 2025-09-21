@@ -176,10 +176,6 @@
         pseudotile = true;
         preserve_split = true;
       };
-      
-      gestures = {
-          workspace_swipe = false;
-      };
     };
   };
 }
