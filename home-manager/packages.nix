@@ -5,6 +5,7 @@
     appimage-run
     brightnessctl
     croc
+    darktable
     #discord
     distrobox
     element-desktop
