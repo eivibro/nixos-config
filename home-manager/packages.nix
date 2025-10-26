@@ -9,7 +9,7 @@
     #discord
     distrobox
     element-desktop
-    electrum
+    #electrum
     freecad-wayland
     grimblast
     htop
