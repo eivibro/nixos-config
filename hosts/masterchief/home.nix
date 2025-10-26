@@ -11,6 +11,7 @@
       ../../home-manager/theming.nix
       ../../home-manager/packages.nix
       ../../home-manager/packages-masterchief.nix
+      ../../home-manager/nvim.nix
       ../../home-manager/stylix.nix
     ];
 

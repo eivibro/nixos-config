@@ -7,7 +7,6 @@
       "https://cuda-maintainers.cachix.org"
       "https://nix-community.cachix.org"
       "https://hyprland.cachix.org"
-      "https://cache.nixos.org/"
     ];
     extra-trusted-users = [
       "eivbro"

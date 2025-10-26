@@ -31,7 +31,6 @@
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     substituters = [
-      "https://cache.nixos.org/"
       "https://nix-community.cachix.org"
       "https://cuda-maintainers.cachix.org"
       "https://hyprland.cachix.org"
@@ -43,6 +42,7 @@
       "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
       "hyprland.cachix.org-1:a7pgxzMdLQWc3DQ2rLfSa9pjRKym+EknyQdWnUImGwc="
     ];
+    trusted-users = [ "root" "eivbro" ];
   };
 
   services.openssh.enable = true;

@@ -277,11 +277,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1761344779,
-        "narHash": "sha256-6LNSptFYhiAd0M/maJoixJw7V0Kp5BSoMRtIahcfu3M=",
+        "lastModified": 1761446278,
+        "narHash": "sha256-RHABglEx32ruvQ+4OqPibeZC/reBfDEBaqKJF0pe4YE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c644cb018f9fdec55f5ac2afb4713a8c7beb757c",
+        "rev": "64020f453bdf3634bf88a6bbce7f3e56183c8b2b",
         "type": "github"
       },
       "original": {
@@ -364,11 +364,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1761340761,
-        "narHash": "sha256-FepDR4dGexBVtXsf1P6lTX5Vmo4T9GRV2AllbgQidBg=",
+        "lastModified": 1761420962,
+        "narHash": "sha256-VHGGX5AQAWljyFHKkFT+3/0SZy7eDQVOo7wZa4E4has=",
         "ref": "refs/heads/main",
-        "rev": "da04afa44e7545771b08f8e0defd2cd1810f1613",
-        "revCount": 6526,
+        "rev": "6ea4769b39fccec22ae2acd015511a745d378840",
+        "revCount": 6530,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -584,7 +584,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-
         "lastModified": 1761114652,
         "narHash": "sha256-f/QCJM/YhrV/lavyCVz8iU3rlZun6d+dAiC3H+CDle4=",
         "owner": "NixOS",
@@ -653,11 +652,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1761371184,
-        "narHash": "sha256-ovfesmmNIJf7sUm9AYhTS59DeXTJ6lEr+NZQ24C6r0s=",
+        "lastModified": 1761464682,
+        "narHash": "sha256-2imv08WWOHYWcnQrYjrwu3E51lRiTC4juOlpjxv7PFw=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "9d12ccc5dc8d56cb41e2dc0092f3acd08fee6eb3",
+        "rev": "9884b590665cf055b01b82dadd0e489401e5fa51",
         "type": "github"
       },
       "original": {
@@ -740,7 +739,7 @@
         "repo": "sops-nix",
         "rev": "5a7d18b5c55642df5c432aadb757140edfeb70b3",
         "type": "github"
-      }
+      },
       "original": {
         "owner": "Mic92",
         "repo": "sops-nix",
