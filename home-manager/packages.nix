@@ -22,7 +22,7 @@
     p7zip
     powertop
     tmux
-    tor-browser-bundle-bin
+    tor-browser
     unrar
     unzip
     #ventoy-bin

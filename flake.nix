@@ -80,9 +80,9 @@
           hosts/masterchief/hm-module.nix
           ({config, pkgs, ...}: {
             nixpkgs.overlays = [ blender-bin.overlays.default ];
-            environment.systemPackages = with pkgs; [ blender_4_2];
+            environment.systemPackages = with pkgs; [ blender_4_5];
           })
-          ];
+        ];
       };
       x230 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
