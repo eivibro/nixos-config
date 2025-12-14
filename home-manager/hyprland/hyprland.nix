@@ -112,13 +112,14 @@
       };
 
 
-      windowrulev2 = [
-        "move 75% 70%,class:(mpv)"
-        "float,title:(Picture-in-Picture)"
-        "move 67% 66%,title:(Picture-in-Picture)"
-        "size 30% 30%,title:(Picture-in-Picture)"
-        "noinitialfocus,class:(mpv)"
-        "float,class:(mpv)"
+      windowrule = [
+        "move monitor_w*0.75 monitor_h*0.7, match:class mpv"
+        "move monitor_w*0.75 monitor_h*0.7, match:title Picture-in-Picture"
+        "float on, match:title Picture-in-Picture"
+        "size monitor_w*0.2 monitor_h*0.2, match:title Picture-in-Picture"
+        "size monitor_w*0.2 monitor_h*0.2, match:class mpv"
+        "no_initial_focus on, match:class mpv"
+        "float on, match:class mpv"
       ];
 
       env = [ 
