@@ -54,6 +54,11 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
+	  ({ ... }: {
+            nixpkgs.overlays = [
+              (import ./overlays/darktable-5_4.nix)
+            ];
+          })
 	  stylix.nixosModules.stylix
 	  nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
           disko.nixosModules.disko

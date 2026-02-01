@@ -29,7 +29,7 @@
   environment.systemPackages = [ 
     #pkgs.qemu 
     pkgs.podman-compose
-    pkgs.esptool
+    #pkgs.esptool
   ];
 
   #boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
