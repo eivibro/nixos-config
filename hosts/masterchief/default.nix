@@ -27,12 +27,12 @@
   };
 
   environment.systemPackages = [ 
-    pkgs.qemu 
+    #pkgs.qemu 
     pkgs.podman-compose
     pkgs.esptool
   ];
 
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  #boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   
 
   networking.hostName = "masterchief"; 
@@ -43,7 +43,7 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-    cudaSupport = true;
+    cudaSupport = false;
   };
 
   # Nvidia
@@ -71,17 +71,17 @@
 
   #services.wyoming.openwakeword.enable = true;
 
-  services.ollama = {
-    enable = true;
-    host = "0.0.0.0";
-    acceleration = "cuda";
-    loadModels = [
-      "llama3.2"
-      "mistral"
-      "llama3.1:8b"
-      "deepseek-r1"
-    ];
-  };
+  #services.ollama = {
+  #  enable = true;
+  #  host = "0.0.0.0";
+  #  acceleration = "cuda";
+  #  loadModels = [
+  #    "llama3.2"
+  #    "mistral"
+  #    "llama3.1:8b"
+  #    "deepseek-r1"
+  #  ];
+  #};
 
   #services.open-webui = {
   #  enable = true;
@@ -92,12 +92,12 @@
   #  };
   #};
 
-  services.sunshine = {
-    enable = true;
-    #autoStart = true;
-    capSysAdmin = true;  # Required for Wayland, optional for Xorg
-    openFirewall = true;
-  };
+  #services.sunshine = {
+  #  enable = true;
+  #  #autoStart = true;
+  #  capSysAdmin = true;  # Required for Wayland, optional for Xorg
+  #  openFirewall = true;
+  #};
 
   hardware.nvidia = {
     modesetting.enable = true;
