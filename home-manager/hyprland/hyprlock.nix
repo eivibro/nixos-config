@@ -23,9 +23,28 @@
         dots_center = true;
         fade_on_empty = false;
         outline_thickness = 5;
-        placeholder_text = ''<span foreground="##${config.stylix.base16Scheme.base05}">Password...</span>'';
+        placeholder_text = ''<span foreground="##${config.stylix.base16Scheme.base0F}">Password...</span>'';
         shadow_passes = 2;
       };
+
+      label =
+      [
+        {
+          text = ''cmd[update:1000] echo "<span foreground='##${config.stylix.base16Scheme.base0F}'>$(date "+%H:%M")</span>"'';
+          font_size = 96;
+          position = "0, 120";
+          halign = "center";
+          valign = "center";
+        }
+        
+        {
+          text = ''cmd[update:60000] echo "<span foreground='##${config.stylix.base16Scheme.base0F}'>$(date "+%A, %d %B")</span>"'';
+          font_size = 28;
+          position = "0, 40";
+          halign = "center";
+          valign = "center";
+        }
+      ];
     };
   };
 }

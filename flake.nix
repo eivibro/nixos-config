@@ -54,6 +54,11 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
+	  ({ ... }: {
+            nixpkgs.overlays = [
+              (import ./overlays/darktable-5_4.nix)
+            ];
+          })
 	  stylix.nixosModules.stylix
 	  nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
           disko.nixosModules.disko
@@ -80,10 +85,10 @@
 	  stylix.nixosModules.stylix
           hosts/masterchief/default.nix
           hosts/masterchief/hm-module.nix
-          ({config, pkgs, ...}: {
-            nixpkgs.overlays = [ blender-bin.overlays.default ];
-            environment.systemPackages = with pkgs; [ blender_4_5];
-          })
+          #({config, pkgs, ...}: {
+          #  nixpkgs.overlays = [ blender-bin.overlays.default ];
+          #  environment.systemPackages = with pkgs; [ blender_4_5];
+          #})
         ];
       };
       x230 = nixpkgs.lib.nixosSystem {

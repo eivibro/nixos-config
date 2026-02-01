@@ -124,11 +124,15 @@
 
       env = [ 
         "XCURSOR_SIZE, 16"
+        "XKB_DEFAULT_LAYOUT,no"
+        "XKB_DEFAULT_VARIANT,dvorak"
+        "GDK_BACKEND,wayland"
       ];
 
       input = {
         kb_layout = "no,no";
-        kb_variant = ",dvorak";
+        kb_variant = "dvorak,";
+	kb_options = "grp:alt_shift_toggle";
         follow_mouse = 1;
         touchpad = {
           natural_scroll = true;

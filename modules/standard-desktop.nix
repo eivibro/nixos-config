@@ -71,8 +71,8 @@
   environment.systemPackages = with pkgs; [
     wget
     wireguard-tools
-    hfsprogs
-    android-tools
+    #hfsprogs
+    #android-tools
     #(callPackage ./cake-wallet.nix {})
   ];
 
