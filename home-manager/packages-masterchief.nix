@@ -2,7 +2,7 @@
 {
   # Packages to install
   home.packages = with pkgs; [
-    cudaPackages.cudatoolkit
+    #cudaPackages.cudatoolkit
     #freecad-wayland
     #bottles
   ];

@@ -43,7 +43,7 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-    cudaSupport = true;
+    cudaSupport = false;
   };
 
   # Nvidia

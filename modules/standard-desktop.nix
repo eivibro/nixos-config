@@ -43,6 +43,7 @@
       "hyprland.cachix.org-1:a7pgxzMdLQWc3DQ2rLfSa9pjRKym+EknyQdWnUImGwc="
     ];
     trusted-users = [ "eivbro" ];
+    download-buffer-size = 524288000;
   };
 
   services.openssh.enable = true;

@@ -8,7 +8,7 @@
     croc
     darktable
     #discord
-    distrobox
+    #distrobox
     element-desktop
     #electrum
     freecad-wayland
@@ -16,7 +16,7 @@
     htop
     hunspell
     hunspellDicts.nb-no
-    kicad
+    #kicad
     libreoffice-qt
     nmap
     moonlight-qt
