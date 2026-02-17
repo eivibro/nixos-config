@@ -131,7 +131,7 @@
 
       input = {
         kb_layout = "no,no";
-        kb_variant = "dvorak,";
+        kb_variant = ",dvorak";
 	kb_options = "grp:alt_shift_toggle";
         follow_mouse = 1;
         touchpad = {

@@ -1,7 +1,7 @@
 { ... }:
 {
   programs.neovim = {
-    extraLuaConfig = ''
+    initLua = ''
       vim.opt.relativenumber = true
       vim.opt.cursorline = true
     '';
