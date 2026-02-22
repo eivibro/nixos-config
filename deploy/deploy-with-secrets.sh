@@ -3,8 +3,8 @@
 temp=$(mktemp -d)
 
 # What and where to build
-host=../.#elev
-ip=192.168.61.174
+host=../.#m920q-multi
+ip=192.168.45.10
 
 # Function to cleanup temporary directory on exit
 cleanup() {

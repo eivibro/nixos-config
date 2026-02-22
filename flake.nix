@@ -136,6 +136,16 @@
           hosts/m720q/hm-module.nix
         ];
       };
+      m920q-multi = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+	  stylix.nixosModules.stylix
+          disko.nixosModules.disko
+          hosts/m920q-multi/default.nix
+          hosts/m920q-multi/hm-module.nix
+        ];
+      };
     };
   };
 }
