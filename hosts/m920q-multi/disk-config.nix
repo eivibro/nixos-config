@@ -60,6 +60,7 @@
               content = {
                 type = "luks";
                 name = "crypted-documents";
+	        initrdUnlock = false;
                 passwordFile = "/tmp/secret.key";
 		settings = {
 		  allowDiscards = true;
@@ -90,6 +91,7 @@
               content = {
                 type = "luks";
                 name = "crypted-media";
+	        initrdUnlock = false;
                 passwordFile = "/tmp/secret.key";
 		settings = {
 		  allowDiscards = true;
