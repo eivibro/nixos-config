@@ -70,6 +70,7 @@
   hardware.bluetooth.enable = true;
 
   environment.systemPackages = with pkgs; [
+    cryptsetup
     wget
     wireguard-tools
     #hfsprogs
