@@ -8,9 +8,9 @@
       ../../home-manager/gammastep.nix
       ../../home-manager/stylix.nix
       ../../home-manager/dunst.nix
-      ../../home-manager/mpv/mpv.nix
+      ../../home-manager/mpv/mpv-no-AV1-1440p.nix
       ../../home-manager/firefox.nix
-      ../../home-manager/yt-dlp.nix
+      ../../home-manager/yt-dlp-no-AV1-1440p.nix
       ../../home-manager/theming.nix
       ../../home-manager/packages.nix
       ../../home-manager/wpaperd.nix
