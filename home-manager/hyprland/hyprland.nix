@@ -12,7 +12,7 @@
       ];
       exec-once = [
         "waybar"
-	"wpaperd -d"
+	#"wpaperd -d"
       ];
 
       bind = [
