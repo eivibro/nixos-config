@@ -28,6 +28,7 @@
     unzip
     #ventoy-bin
     wl-clipboard
+    wlopm
     wlr-randr
   ];
 

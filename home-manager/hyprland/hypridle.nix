@@ -4,20 +4,21 @@
     enable = true;
     settings = {
       general = {
-        lock-cmd = "pidof hyprlock || hyprlock";
-	before_sleep_cmd = "hyprlock";
-	ignore_dbus_inhibit = true;
+        lock_cmd = "pidof hyprlock || hyprlock";
+	before_sleep_cmd = "loginctl lock-session";
+	#after_sleep_cmd = "hyprctl dispatch dpms on";
+	ignore_dbus_inhibit = false;
       };
       listener = [
         {
 	  timeout = 300; 
-	  on-timeout = "hyprlock";
+	  on-timeout = "loginctl lock-session";
 	}
-        {
-	  timeout = 360; 
-	  on-timeout = "hyprctl dispatch dpms off"; 
-	  on-resume = "hyprctl dispatch dpms on"; 
-	}
+        #{
+  	#  timeout = 360;
+	#  on-timeout = "hyprctl dispatch dpms off";
+        #  on-resume = "hyprctl dispatch dpms on";
+	#}
         #{
 	#  timeout = 600; 
 	#  on-timeout = "systemctl suspend"; 
