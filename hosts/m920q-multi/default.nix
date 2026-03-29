@@ -4,6 +4,7 @@
   imports = [
     ./hardware.nix
     ./disk-config.nix
+    ./routing.nix
     ../../modules/sops.nix
     ../../modules/users.nix
     ../../modules/stylix.nix
@@ -18,6 +19,5 @@
   };
 
   networking.hostName = "m920q-multi"; 
-  networking.firewall.enable = false;
 }
 

@@ -32,8 +32,7 @@
     #pkgs.esptool
   ];
 
-  #boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-  
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   networking.hostName = "masterchief"; 
 

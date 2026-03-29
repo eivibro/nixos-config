@@ -7,6 +7,7 @@
       ../../home-manager/git.nix
       ../../home-manager/gammastep.nix
       ../../home-manager/mpv/mpv-masterchief.nix
+      ../../home-manager/yt-dlp-masterchief.nix
       ../../home-manager/firefox.nix
       ../../home-manager/theming.nix
       ../../home-manager/packages.nix
