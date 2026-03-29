@@ -73,6 +73,7 @@
     cryptsetup
     wget
     wireguard-tools
+    #s-tui
     #hfsprogs
     #android-tools
     #(callPackage ./cake-wallet.nix {})
