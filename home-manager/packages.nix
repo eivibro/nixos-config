@@ -13,6 +13,7 @@
     #electrum
     freecad-wayland
     grimblast
+    jellyfin-desktop
     htop
     hunspell
     hunspellDicts.nb-no

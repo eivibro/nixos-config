@@ -13,7 +13,6 @@
       "eivbro"
     ];
     trusted-public-keys = [
-    #extra-trusted-public-keys = [
       "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -26,7 +25,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    #hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprland.url = "github:hyprwm/Hyprland";
     nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
