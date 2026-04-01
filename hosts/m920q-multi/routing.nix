@@ -77,6 +77,7 @@
             chain postrouting {
               type nat hook postrouting priority srcnat; policy accept;
               ip saddr 192.168.70.0/24 oifname "wan0" masquerade comment "NAT LAN clients to WAN"
+              #ip saddr 192.168.41.0/24 oifname "wan0" masquerade comment "NAT silke LAN clients to WAN"
 	      ip saddr 10.201.0.0/24 oifname "wan0" masquerade comment "NAT roadwarrior clients to WAN"
             }
           '';
