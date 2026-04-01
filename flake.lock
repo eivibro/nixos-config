@@ -611,6 +611,26 @@
         "type": "github"
       }
     },
+    "nix-utils": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1764614525,
+        "narHash": "sha256-FIxdC7FGM3tcHrgzK9z7AlYrPpn+m1TLwkUcIVkmoqc=",
+        "owner": "femtodata",
+        "repo": "nix-utils",
+        "rev": "51a56f1aec4897618c5e3b1b9c14cb5af00293b5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "femtodata",
+        "repo": "nix-utils",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1774465523,
@@ -779,6 +799,7 @@
         "disko": "disko",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "nix-utils": "nix-utils",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
         "nur": "nur",

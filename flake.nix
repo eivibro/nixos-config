@@ -33,6 +33,8 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
+    nix-utils.url = "github:femtodata/nix-utils";
+    nix-utils.inputs.nixpkgs.follows = "nixpkgs";
     blender-bin.url = "github:edolstra/nix-warez?dir=blender";
   };
 
@@ -60,6 +62,7 @@
             ];
           })
 	  stylix.nixosModules.stylix
+	  inputs.nix-utils.nixosModules.switch-fix
 	  nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
           disko.nixosModules.disko
           hosts/x1-carbon/default.nix

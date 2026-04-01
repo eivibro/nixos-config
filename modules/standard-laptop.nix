@@ -107,6 +107,7 @@
   hardware.bluetooth.enable = true;
 
   environment.systemPackages = with pkgs; [
+    #s-tui
     wget
     wireguard-tools
     hfsprogs
