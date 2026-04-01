@@ -126,11 +126,11 @@
         "XKB_DEFAULT_LAYOUT,no"
         "XKB_DEFAULT_VARIANT,dvorak"
         "GDK_BACKEND,wayland"
-  	"LIBVA_DRIVER_NAME,nvidia"
-  	"XDG_SESSION_TYPE,wayland"
-  	"GBM_BACKEND,nvidia-drm"
-  	"__GLX_VENDOR_LIBRARY_NAME,nvidia"
-  	"NVD_BACKEND,direct" 
+  	#"LIBVA_DRIVER_NAME,nvidia"
+  	#"XDG_SESSION_TYPE,wayland"
+  	#"GBM_BACKEND,nvidia-drm"
+  	#"__GLX_VENDOR_LIBRARY_NAME,nvidia"
+  	#"NVD_BACKEND,direct" 
       ];
 
       input = {

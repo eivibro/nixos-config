@@ -22,7 +22,8 @@
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      intel-media-driver
+      libvdpau-va-gl
     ];
   };
 }
