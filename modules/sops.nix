@@ -27,8 +27,5 @@
     secrets."wifi/laptop" = {};
     secrets."users/eivbro".neededForUsers = true;
     secrets."users/root".neededForUsers = true;
-    secrets."grafana/secretKey" = {
-      owner = "grafana";
-    };
   };
 }

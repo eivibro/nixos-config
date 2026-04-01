@@ -5,7 +5,6 @@
     settings = {
       general = [
         {
-	  disable_loading_bar = true;
 	  hide_cursor = true;
 	}
       ];

@@ -13,7 +13,6 @@
       ../../home-manager/yt-dlp.nix
       ../../home-manager/theming.nix
       ../../home-manager/packages.nix
-      ../../home-manager/wpaperd.nix
       ../../home-manager/nvim.nix
       #../../home-manager/vscodium.nix
     ];

@@ -68,14 +68,15 @@
   };
 
   hardware.bluetooth.enable = true;
+  
 
   environment.systemPackages = with pkgs; [
     cryptsetup
     wget
     wireguard-tools
-    #s-tui
-    #hfsprogs
-    #android-tools
+    hfsprogs
+    android-tools
+    adb-sync
     #(callPackage ./cake-wallet.nix {})
   ];
 

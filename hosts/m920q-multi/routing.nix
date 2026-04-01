@@ -275,6 +275,11 @@
       }
     ];
   };
+  sops = {
+    secrets."grafana/secretKey" = {
+      owner = "grafana";
+    };
+  };
   services.grafana = {
     enable = true;
     settings.server = {
