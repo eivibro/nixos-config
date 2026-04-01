@@ -9,6 +9,7 @@
     ../../modules/users.nix
     ../../modules/stylix.nix
     ../../modules/standard-desktop.nix
+    inputs.nix-utils.nixosModules.switch-fix
   ];
 
   services.fstrim.enable = true;

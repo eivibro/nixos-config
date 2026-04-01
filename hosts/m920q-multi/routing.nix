@@ -257,7 +257,7 @@
       node = {
         enable = true;
         port = 9100;
-        enabledCollectors = [ "systemd" "nftables" ];
+        enabledCollectors = [ "systemd" ];
       };
       wireguard = {
         enable = true;

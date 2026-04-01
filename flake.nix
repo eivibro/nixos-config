@@ -62,7 +62,6 @@
             ];
           })
 	  stylix.nixosModules.stylix
-	  inputs.nix-utils.nixosModules.switch-fix
 	  nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
           disko.nixosModules.disko
           hosts/x1-carbon/default.nix
