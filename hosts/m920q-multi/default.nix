@@ -5,6 +5,7 @@
     ./hardware.nix
     ./disk-config.nix
     ./routing.nix
+    ./unlock-backup.nix
     ../../modules/sops.nix
     ../../modules/users.nix
     ../../modules/stylix.nix
