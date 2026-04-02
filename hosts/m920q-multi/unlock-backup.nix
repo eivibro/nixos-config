@@ -10,16 +10,10 @@
           /dev/disk/by-uuid/26bd9737-ebc5-41ac-a0ba-a51b8781ce5b \
           crypted-media \
           --key-file ${config.sops.secrets."backup/luksPassword".path}
-        #mount /mnt/backup-media/desktop/documents
-        #mount /mnt/backup-media/desktop/pictures
-        #mount /mnt/backup-media/laptop/documents
-        #mount /mnt/backup-media/laptop/pictures
+        mount /mnt/backup-media
       '';
       ExecStop = pkgs.writeShellScript "backup-media-lock" ''
-        #umount /mnt/backup-media/desktop/documents
-        #umount /mnt/backup-media/desktop/pictures
-        #umount /mnt/backup-media/laptop/documents
-        #umount /mnt/backup-media/laptop/pictures
+        umount /mnt/backup-media
         ${pkgs.cryptsetup}/bin/cryptsetup close crypted-media
       '';
     };
