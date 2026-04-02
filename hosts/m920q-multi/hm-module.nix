@@ -23,7 +23,7 @@ in {
           ./home.nix
           inputs.hyprland.homeManagerModules.default
         ];
-     };
+      };
       home-manager.extraSpecialArgs = { inherit self inputs; };
       nixpkgs.overlays = overlays;
     }
