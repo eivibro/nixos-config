@@ -20,6 +20,16 @@
     fileSystems = [ "/" "/home" ];
   };
 
+  users.groups.btrbk = {};
+  users.users.btrbk = {
+    isSystemUser = true;
+    group = "btrbk";
+    shell = pkgs.bash;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE47s9CUtd3+YxUJvm2Ty5m6BUxpooB0unD9u53uEYUM backup@x1-carbon"
+    ];
+  };
+
   networking.hostName = "m920q-multi"; 
 }
 

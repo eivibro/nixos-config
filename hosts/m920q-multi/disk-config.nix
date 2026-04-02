@@ -71,7 +71,7 @@
                   subvolumes = {
                     "@backup" = {
                       mountpoint = "/mnt/backup-documents";
-                      mountOptions = [ "nofail" "compress=zstd:3" "noatime" "noauto" "x-systemd.automount" ];
+                      mountOptions = [ "nofail" "compress=zstd:3" "noatime" "noauto" ];
                     };
                   };
                 };
@@ -102,7 +102,7 @@
                   subvolumes = {
                     "@backup" = {
                       mountpoint = "/mnt/backup-media";
-                      mountOptions = [ "nofail" "compress=zstd:3" "noatime" "noauto" "x-systemd.automount" ];
+                      mountOptions = [ "nofail" "compress=zstd:3" "noatime" "noauto" ];
                     };
                   };
                 };
