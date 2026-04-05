@@ -5,6 +5,7 @@
     ./hardware-masterchief.nix
     ./disk-config.nix
     ../../modules/sops.nix
+    ../../modules/ai.nix
     ../../modules/wifi.nix
     ../../modules/users.nix
     ../../modules/stylix.nix
@@ -73,17 +74,20 @@
   #services.ollama = {
   #  enable = true;
   #  host = "0.0.0.0";
-  #  acceleration = "cuda";
+  #  package = pkgs.ollama-cuda;
   #  loadModels = [
-  #    "llama3.2"
-  #    "mistral"
-  #    "llama3.1:8b"
-  #    "deepseek-r1"
+  #    "llama3.3:8b"
+  #    "llama3.3:8b"
+  #    "mistral:8b"
+  #    "qwen3.5:9b"
+  #    "deepseek-r1:8b"
+  #    "phi4:mini"
   #  ];
   #};
 
   #services.open-webui = {
   #  enable = true;
+  #  port = 8080;
   #  host = "0.0.0.0";
   #  environment = {
   #    OLLAMA_API_BASE_URL = "http://127.0.0.1:11434";
@@ -91,12 +95,32 @@
   #  };
   #};
 
-  #services.sunshine = {
+  #services.searx = {
   #  enable = true;
-  #  #autoStart = true;
-  #  capSysAdmin = true;  # Required for Wayland, optional for Xorg
-  #  openFirewall = true;
+  #  package = pkgs.searxng;
+  #  redisCreateLocally = true;
+
+  #  settings = {
+  #    general.debug = false;
+
+  #    server = {
+  #      bind_address = "192.168.44.10";
+  #      port = 8888;
+  #      secret_key = "local-testing-only";
+  #      limiter = false;
+  #      method = "GET";
+  #    };
+
+  #    search.formats = [ "html" "json" ];
+  #  };
   #};
+
+  services.sunshine = {
+    enable = true;
+    #autoStart = true;
+    capSysAdmin = true;  # Required for Wayland, optional for Xorg
+    openFirewall = true;
+  };
 
   hardware.nvidia = {
     modesetting.enable = true;

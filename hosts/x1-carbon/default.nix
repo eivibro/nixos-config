@@ -15,6 +15,19 @@
   networking.hostName = "carbon"; 
   networking.firewall.enable = false;
 
+  programs.ssh.extraConfig = ''
+    Host m920q-backup
+      Hostname 192.168.70.1
+      User btrbk
+      IdentityFile /run/secrets/ssh/backup-x1-carbon
+      StrictHostKeyChecking yes
+      BatchMode yes
+  '';
+  sops.secrets."ssh/backup-x1-carbon" = {
+    mode = "0400";
+    owner = "root";
+  };
+
   networking.wg-quick.interfaces = {
     wg0 = {
       address = [ "172.16.16.4/24" ];
