@@ -5,8 +5,7 @@
     defaultSopsFile = ../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
     age.sshKeyPaths = [ "/root/.ssh/ssh_host_ed25519_key" ];
-    age.keyFile = "/root/.config/keys.txt";
-    age.generateKey = true;
+    age.keyFile = "/root/.config/sops/age/keys.txt";
     gnupg.sshKeyPaths = [];
     secrets."wireguard/cortana/private" = {};
     secrets."wireguard/tunnel/home" = {

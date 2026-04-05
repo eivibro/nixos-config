@@ -166,6 +166,7 @@
 
       misc = {
           force_default_wallpaper = 0;
+	  disable_watchdog_warning = 1;
       };
 
       animations = {

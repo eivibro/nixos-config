@@ -48,6 +48,10 @@
                       mountpoint = "/.swapvol";
                       swap.swapfile.size = "8G";
                     };
+                    "/home/eivbro/Pictures" = {
+                      mountpoint = "/home/eivbro/Pictures";
+                      mountOptions = [ "compress=zstd" "noatime" ];
+                    };
                   };
                 };
               };
