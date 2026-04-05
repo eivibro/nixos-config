@@ -14,6 +14,7 @@
       ../../home-manager/packages-masterchief.nix
       ../../home-manager/nvim.nix
       ../../home-manager/stylix.nix
+      ../../home-manager/vscodium.nix
     ];
 
   home.username = "eivbro";
