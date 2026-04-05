@@ -104,6 +104,14 @@
                       mountpoint = "/mnt/backup-media";
                       mountOptions = [ "nofail" "compress=zstd:3" "noatime" "noauto" ];
                     };
+                    "@laptop-pictures" = {
+                      mountpoint = "/mnt/laptop/pictures";
+                      mountOptions = [ "nofail" "compress=zstd:3" "noatime" "noauto" ];
+                    };
+                    "@desktop-pictures" = {
+                      mountpoint = "/mnt/backup-media/desktop/pictures";
+                      mountOptions = [ "nofail" "compress=zstd:3" "noatime" "noauto" ];
+                    };
                   };
                 };
               };

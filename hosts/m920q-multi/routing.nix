@@ -131,7 +131,7 @@
         wireguardPeers = [
           {
             PublicKey = "tLNNGNbIwqyMaHLGSGrB7/XfRiuFTW7YyXIzQt3hAzE=";
-            AllowedIPs = [ "192.168.41.0/24" "10.200.0.1/32" ];
+            AllowedIPs = [ "192.168.41.0/24" "192.168.44.0/24" "10.200.0.1/32" ];
             Endpoint = "wireguard.brox.tech:51434";
 	    PersistentKeepalive = 25;
           }
@@ -212,6 +212,9 @@
         routes = [
           {
             Destination = "192.168.41.0/24";
+          }
+          {
+            Destination = "192.168.44.0/24";
           }
         ];
       };
