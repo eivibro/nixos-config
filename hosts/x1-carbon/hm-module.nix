@@ -8,7 +8,6 @@ let
 in {
   programs.hyprland = {
     enable = true;
-    #package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   };
 
   imports = 
@@ -21,6 +20,7 @@ in {
       home-manager.useUserPackages = true;
       home-manager.users.eivbro = {
         imports = [
+	  inputs.sops-nix.homeManagerModules.sops
           ./home.nix
           inputs.hyprland.homeManagerModules.default
         ];

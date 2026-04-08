@@ -14,11 +14,18 @@
       ../../home-manager/theming.nix
       ../../home-manager/packages.nix
       ../../home-manager/nvim.nix
-      #../../home-manager/vscodium.nix
+      ../../home-manager/vscodium.nix
+      ../../home-manager/starship.nix
     ];
   home.packages = with pkgs; [
     steam
   ];
+
+  sops = {
+    age.sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/ssh_host_ed25519_key" ];
+    defaultSopsFile = ../../secrets/secrets.yaml;
+    secrets."litellm/litellm_master_key"= {};
+  };
 
   home.username = "eivbro";
   home.homeDirectory = "/home/eivbro";
